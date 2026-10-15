@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed | Peters' Bakery | San Jose, CA</title>
+  <meta name="description" content="Thank you for your order with Peters' Bakery! View your order summary, pickup details, and receipt.">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .success-hero {
+      background: linear-gradient(180deg, var(--color-warm-white) 0%, rgba(247, 243, 235, 0.6) 100%);
+      padding: 4rem 1rem 3rem;
+      text-align: center;
+    }
+    .success-badge-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #e8f5e9;
+      color: #2e7d32;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 14px rgba(46, 125, 50, 0.15);
+    }
+    .receipt-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      max-width: 680px;
+      margin: -2rem auto 4rem;
+      padding: 2.5rem;
+      position: relative;
+    }
+    .receipt-header {
+      border-bottom: 2px dashed var(--color-border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .pickup-highlight-box {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .receipt-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    .receipt-table th {
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-border);
+      padding: 8px 0;
+    }
+    .receipt-table td {
+      padding: 12px 0;
+      border-bottom: 1px solid #f0ece3;
+      vertical-align: top;
+    }
+    .receipt-table td.num {
+      text-align: right;
+      font-weight: 600;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      color: var(--color-text-muted);
+    }
+    .summary-row.total {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      border-top: 2px solid var(--color-border);
+      padding-top: 12px;
+      margin-top: 8px;
+    }
+    .receipt-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printable-receipt, #printable-receipt * {
+        visibility: visible;
+      }
+      #printable-receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+      }
+      .receipt-actions, .site-header, .site-footer, .announcement-bar {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Announcement">
+    <div class="container">
+      <div class="announcement-left">
+        <div class="announcement-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Tue – Sat: 6:30 AM – 6:00 PM</span>
+        </div>
+        <div class="announcement-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <a href="tel:+14082583529">(408) 258-3529</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/images/logo.png" alt="Peters' Bakery" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-name">Peters' Bakery</span>
+          <span class="brand-tagline">Since 1936</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="about.html" class="nav-link">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Confirmation -->
+  <section class="success-hero">
+    <div class="container">
+      <div class="success-badge-icon">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h1 style="color: var(--color-primary); margin-bottom: 0.5rem;">Payment Confirmed!</h1>
+      <p style="color: var(--color-text-muted); max-width: 520px; margin: 0 auto; font-size: 1.05rem;">
+        Thank you for choosing Peters' Bakery. We have received your order and payment via Stripe. A copy of this receipt has been emailed to you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Printable Receipt Card -->
+  <main class="container">
+    <article class="receipt-card" id="printable-receipt">
+      <div id="receipt-loading" style="text-align: center; padding: 3rem 1rem;">
+        <div class="spinner" style="margin: 0 auto 1rem; width: 36px; height: 36px; border: 3px solid #eee; border-top-color: var(--color-primary); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+        <p style="color: var(--color-text-muted);">Retrieving order details from Stripe...</p>
+      </div>
+
+      <div id="receipt-content" style="display: none;">
+        <div class="receipt-header">
+          <div>
+            <h2 style="font-size: 1.35rem; margin-bottom: 4px; color: var(--color-primary);">Peters' Bakery Receipt</h2>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);">
+              3108 Alum Rock Ave, San Jose, CA 95127 &bull; (408) 258-3529
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-weight: 700; color: var(--color-primary);" id="receipt-order-id">#ORD-</div>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);" id="receipt-date"></div>
+          </div>
+        </div>
+
+        <!-- In-Store Pickup Advisory Box -->
+        <div class="pickup-highlight-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b78103" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <div>
+            <h3 style="font-size: 1rem; margin-bottom: 4px; color: #855700;">Scheduled Bakery Pickup</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 4px; color: #5c3e00;">
+              <strong>Date:</strong> <span id="receipt-pickup-date">As scheduled</span> &bull;
+              <strong>Time Window:</strong> <span id="receipt-pickup-time">Morning</span>
+            </p>
+            <p style="font-size: 0.82rem; color: #735002; margin: 0;">
+              Please present this confirmation number at the counter when you arrive at our Alum Rock bakery.
+            </p>
+          </div>
+        </div>
+
+        <!-- Customer & Order Information -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem;">
+          <div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600;">Customer</div>
+            <div id="receipt-customer-name" style="font-weight: 600;">Valued Customer</div>
+            <div id="receipt-customer-email" style="color: var(--color-text-muted);"></div>
+            <div id="receipt-customer-phone" style="color: var(--color-text-muted);"></div>
+          </div>
+          <div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600;">Payment Status</div>
+            <div id="receipt-payment-status" style="font-weight: 600; color: #2e7d32;">Paid via Stripe</div>
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Dynamic Payment Methods &bull; Stripe Tax</div>
+          </div>
+        </div>
+
+        <!-- Line items table -->
+        <table class="receipt-table">
+          <thead>
+            <tr>
+              <th>Item & Customizations</th>
+              <th style="text-align: center; width: 60px;">Qty</th>
+              <th style="text-align: right; width: 90px;">Total</th>
+            </tr>
+          </thead>
+          <tbody id="receipt-items-body">
+            <!-- Dynamic Items -->
+          </tbody>
+        </table>
+
+        <!-- Totals & Tax Calculation -->
+        <div style="max-width: 280px; margin-left: auto;">
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span id="receipt-subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Sales Tax (Stripe Tax):</span>
+            <span id="receipt-tax">$0.00</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total Paid:</span>
+            <span id="receipt-total">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Receipt Actions -->
+        <div class="receipt-actions">
+          <button class="btn btn-primary" onclick="window.print()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Print Receipt
+          </button>
+          <a href="index.html" class="btn btn-secondary">Return to Home</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="text-align: center; padding: 2rem 0;">
+      <p>&copy; 2026 Peters' Bakery. All rights reserved. &bull; 3108 Alum Rock Ave, San Jose, CA 95127 &bull; (408) 258-3529</p>
+    </div>
+  </footer>
+
+  <script>
+    // Clear cart upon successful payment
+    try {
+      localStorage.removeItem('peters_bakery_cart');
+    } catch(e) {}
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+
+    async function loadReceipt() {
+      const loadingEl = document.getElementById('receipt-loading');
+      const contentEl = document.getElementById('receipt-content');
+
+      if (!sessionId) {
+        loadingEl.innerHTML = `
+          <p style="color: var(--color-danger); font-weight: 600;">No session ID provided in URL.</p>
+          <a href="orders.html" class="btn btn-secondary" style="margin-top: 1rem;">Go to Orders</a>
+        `;
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/get-checkout-session?session_id=${encodeURIComponent(sessionId)}`);
+        if (!res.ok) throw new Error('Could not retrieve session from Stripe');
+        const data = await res.json();
+
+        loadingEl.style.display = 'none';
+        contentEl.style.display = 'block';
+
+        // Order number & date
+        document.getElementById('receipt-order-id').innerText = '#' + (data.id.slice(-8).toUpperCase());
+        const orderDate = new Date((data.created || Date.now() / 1000) * 1000);
+        document.getElementById('receipt-date').innerText = orderDate.toLocaleDateString('en-US', {
+          month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+
+        // Pickup info
+        if (data.metadata?.pickupDate) {
+          document.getElementById('receipt-pickup-date').innerText = data.metadata.pickupDate;
+        }
+        if (data.metadata?.pickupTime) {
+          document.getElementById('receipt-pickup-time').innerText = data.metadata.pickupTime;
+        }
+
+        // Customer Details
+        if (data.customer_details?.name) {
+          document.getElementById('receipt-customer-name').innerText = data.customer_details.name;
+        }
+        if (data.customer_details?.email) {
+          document.getElementById('receipt-customer-email').innerText = data.customer_details.email;
+        }
+        if (data.customer_details?.phone) {
+          document.getElementById('receipt-customer-phone').innerText = data.customer_details.phone;
+        }
+
+        // Items table
+        const tbody = document.getElementById('receipt-items-body');
+        if (data.line_items && data.line_items.length > 0) {
+          tbody.innerHTML = data.line_items.map(item => {
+            return `
+              <tr>
+                <td>
+                  <div style="font-weight: 600; color: var(--color-primary);">${item.description || item.price?.product?.name || 'Bakery Item'}</div>
+                  ${item.price?.product?.metadata?.details ? `<div style="font-size: 0.82rem; color: var(--color-text-muted);">${item.price.product.metadata.details}</div>` : ''}
+                </td>
+                <td style="text-align: center;">${item.quantity}</td>
+                <td class="num">$${(item.amount_total / 100).toFixed(2)}</td>
+              </tr>
+            `;
+          }).join('');
+        } else {
+          tbody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: var(--color-text-muted);">Custom Order Items</td></tr>`;
+        }
+
+        // Amounts
+        const subtotal = (data.amount_subtotal || data.amount_total) / 100;
+        const tax = (data.total_details?.amount_tax || 0) / 100;
+        const total = (data.amount_total || 0) / 100;
+
+        document.getElementById('receipt-subtotal').innerText = '$' + subtotal.toFixed(2);
+        document.getElementById('receipt-tax').innerText = '$' + tax.toFixed(2);
+        document.getElementById('receipt-total').innerText = '$' + total.toFixed(2);
+
+      } catch (err) {
+        console.error(err);
+        loadingEl.innerHTML = `
+          <div style="padding: 1.5rem; background: #fff3f3; border-radius: var(--radius-md); border: 1px solid #ffcdd2;">
+            <p style="color: var(--color-danger); font-weight: 600; margin-bottom: 0.5rem;">Order recorded via Stripe!</p>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted);">Confirmation session: <code>${sessionId}</code></p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;">Your payment was processed successfully. Please save your session ID for counter pickup.</p>
+            <a href="index.html" class="btn btn-secondary" style="margin-top: 1rem;">Back to Home</a>
+          </div>
+        `;
+      }
+    }
+
+    loadReceipt();
+  </script>
+</body>
+</html>

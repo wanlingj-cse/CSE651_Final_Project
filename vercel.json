@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/online/petersbakery", "destination": "/online/petersbakery.html" },
+    { "source": "/order.toasttab.com/online/petersbakery", "destination": "/online/petersbakery.html" },
+    { "source": "/toasttab", "destination": "/online/petersbakery.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    }
+  ]
+}

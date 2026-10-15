@@ -1,0 +1,10 @@
+.git
+.DS_Store
+docker/
+Dockerfile
+docker-compose.yml
+.dockerignore
+data/
+peters_home.html
+page_*.html
+.env*

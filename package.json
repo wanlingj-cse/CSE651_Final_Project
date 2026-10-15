@@ -1,0 +1,9 @@
+{
+  "name": "peters-bakery",
+  "version": "1.0.0",
+  "description": "Peter's Bakery official website with custom cake builder, cart, and Stripe Checkout with Tax",
+  "type": "module",
+  "dependencies": {
+    "stripe": "^17.7.0"
+  }
+}

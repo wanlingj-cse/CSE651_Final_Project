@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peters' Bakery Online Ordering | Powered by Toast Tab</title>
+  <meta name="description" content="Official Peters' Bakery Toast Tab online ordering. Order our famous Burnt Almond Cake, fresh pastries, pies, cookies, and breads for scheduled pickup in San Jose, CA.">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --toast-orange: #FF5A00;
+      --toast-orange-hover: #E04F00;
+      --toast-dark: #1F2327;
+      --toast-gray-light: #F7F8F9;
+      --toast-gray-border: #E2E6E9;
+      --toast-text-muted: #5C656D;
+      --peters-caramel: #C88236;
+      --peters-cream: #FAF6F0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--toast-gray-light);
+      color: var(--toast-dark);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Brand Navigation Bar */
+    .toast-top-nav {
+      background: #ffffff;
+      border-bottom: 1px solid var(--toast-gray-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .top-nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--toast-text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      background: var(--toast-gray-light);
+      transition: all 0.2s ease;
+    }
+    .back-home-link:hover {
+      background: #e9ecef;
+      color: var(--toast-dark);
+    }
+    .toast-powered-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--toast-orange);
+      letter-spacing: -0.2px;
+    }
+    .toast-logo-icon {
+      width: 22px;
+      height: 22px;
+      background: var(--toast-orange);
+      color: #fff;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    /* Storefront Hero Banner */
+    .store-hero {
+      background: #ffffff;
+      border-bottom: 1px solid var(--toast-gray-border);
+      padding: 2rem 1.25rem;
+    }
+    .store-hero-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+    .store-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: var(--radius-md);
+      object-fit: contain;
+      border: 1px solid var(--toast-gray-border);
+      background: #ffffff;
+      padding: 4px;
+      box-shadow: var(--shadow-sm);
+    }
+    .store-details h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--toast-dark);
+      margin-bottom: 0.25rem;
+    }
+    .store-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--toast-text-muted);
+      margin-top: 0.35rem;
+    }
+    .store-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #EBF3FF;
+      color: #0B63E5;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+    .badge-pill.notice {
+      background: #FFF4E5;
+      color: #B25E00;
+    }
+    .badge-pill.status {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    /* Store Fulfillment Pill */
+    .fulfillment-card {
+      background: var(--toast-gray-light);
+      border: 1px solid var(--toast-gray-border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      min-width: 260px;
+    }
+    .fulfillment-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--toast-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .fulfillment-val {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--toast-dark);
+    }
+    .fulfillment-sub {
+      font-size: 0.8rem;
+      color: #B25E00;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* Sticky Category Nav */
+    .category-sticky-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--toast-gray-border);
+      position: sticky;
+      top: 57px;
+      z-index: 900;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+    .category-scroll-wrapper {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .category-scroll-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+    .cat-tab-btn {
+      white-space: nowrap;
+      padding: 0.875rem 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--toast-text-muted);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .cat-tab-btn:hover {
+      color: var(--toast-orange);
+    }
+    .cat-tab-btn.active {
+      color: var(--toast-orange);
+      border-bottom-color: var(--toast-orange);
+    }
+
+    /* Main Content Layout */
+    .toast-main-layout {
+      max-width: 1240px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Search & Filter Header */
+    .menu-filter-bar {
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .menu-search-input {
+      flex: 1;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      font-size: 0.95rem;
+      border: 1px solid var(--toast-gray-border);
+      border-radius: var(--radius-md);
+      background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E") no-repeat 0.85rem center;
+      transition: border-color 0.2s;
+    }
+    .menu-search-input:focus {
+      outline: none;
+      border-color: var(--toast-orange);
+      box-shadow: 0 0 0 3px rgba(255, 90, 0, 0.15);
+    }
+
+    /* Category Section */
+    .menu-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 120px;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--toast-dark);
+      margin-bottom: 0.25rem;
+    }
+    .section-desc {
+      font-size: 0.875rem;
+      color: var(--toast-text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Menu Grid */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+    .item-card {
+      background: #ffffff;
+      border: 1px solid var(--toast-gray-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .item-card:hover {
+      border-color: #cbd2d6;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .item-card-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .item-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--toast-dark);
+      margin-bottom: 0.35rem;
+    }
+    .item-desc {
+      font-size: 0.82rem;
+      color: var(--toast-text-muted);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+    .item-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .item-price {
+      font-weight: 700;
+      color: var(--toast-dark);
+      font-size: 1rem;
+    }
+    .btn-add-item {
+      background: #ffffff;
+      color: var(--toast-orange);
+      border: 1px solid var(--toast-orange);
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-add-item:hover {
+      background: var(--toast-orange);
+      color: #ffffff;
+    }
+    .item-image {
+      width: 104px;
+      height: 104px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #f0ece3;
+    }
+
+    /* Right Sticky Order Summary / Cart Sidebar */
+    .toast-cart-sidebar {
+      background: #ffffff;
+      border: 1px solid var(--toast-gray-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      position: sticky;
+      top: 130px;
+      box-shadow: var(--shadow-sm);
+    }
+    .cart-sidebar-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pickup-alert-box {
+      background: #FFF7ED;
+      border: 1px solid #FFEDD5;
+      border-radius: var(--radius-sm);
+      padding: 0.875rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      gap: 0.65rem;
+      font-size: 0.82rem;
+      color: #9A3412;
+      line-height: 1.4;
+    }
+    .pickup-schedule-group {
+      margin-bottom: 1.25rem;
+      background: var(--toast-gray-light);
+      border-radius: var(--radius-sm);
+      padding: 0.875rem;
+      border: 1px solid var(--toast-gray-border);
+    }
+    .pickup-schedule-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--toast-text-muted);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .pickup-schedule-group input,
+    .pickup-schedule-group select {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid var(--toast-gray-border);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      background: #ffffff;
+      margin-bottom: 8px;
+    }
+    .cart-items-list {
+      max-height: 280px;
+      overflow-y: auto;
+      margin-bottom: 1.25rem;
+    }
+    .cart-empty-view {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--toast-text-muted);
+      font-size: 0.9rem;
+    }
+    .toast-cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--toast-gray-border);
+    }
+    .toast-cart-item-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--toast-dark);
+    }
+    .toast-cart-item-meta {
+      font-size: 0.78rem;
+      color: var(--toast-text-muted);
+      margin-top: 2px;
+    }
+    .toast-cart-item-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .qty-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid var(--toast-gray-border);
+      background: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .qty-btn:hover {
+      background: var(--toast-gray-light);
+    }
+    .cart-totals-section {
+      border-top: 2px solid var(--toast-gray-border);
+      padding-top: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      color: var(--toast-text-muted);
+      margin-bottom: 6px;
+    }
+    .totals-row.final {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--toast-dark);
+      border-top: 1px solid var(--toast-gray-border);
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+    .btn-toast-checkout {
+      width: 100%;
+      background: var(--toast-orange);
+      color: #ffffff;
+      border: none;
+      padding: 0.875rem;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s ease, transform 0.1s ease;
+      box-shadow: 0 4px 10px rgba(255, 90, 0, 0.3);
+    }
+    .btn-toast-checkout:hover {
+      background: var(--toast-orange-hover);
+      transform: translateY(-1px);
+    }
+    .btn-toast-checkout:disabled {
+      background: #ccc;
+      box-shadow: none;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .secure-stripe-text {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--toast-text-muted);
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    /* Modal for Customization */
+    .custom-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .custom-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .custom-modal-dialog {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      padding: 1.75rem;
+      position: relative;
+    }
+    .modal-close-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--toast-text-muted);
+      cursor: pointer;
+    }
+    .modal-cake-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+    }
+    .option-group-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--toast-dark);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .option-choice-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--toast-gray-border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .option-choice-row.selected {
+      border-color: var(--toast-orange);
+      background: #FFF9F5;
+    }
+
+    @media (max-width: 900px) {
+      .toast-main-layout {
+        grid-template-columns: 1fr;
+      }
+      .store-hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .store-avatar {
+        margin: 0 auto;
+      }
+      .store-meta-row {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Toast Navigation Bar -->
+  <header class="toast-top-nav">
+    <div class="top-nav-inner">
+      <div class="nav-brand-group">
+        <a href="../index.html" class="back-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Peters' Bakery Home
+        </a>
+      </div>
+      <div class="toast-powered-badge">
+        <div class="toast-logo-icon">T</div>
+        <span>TOAST ONLINE ORDERING</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Storefront Hero Banner -->
+  <section class="store-hero">
+    <div class="store-hero-container">
+      <img src="/assets/images/logo.png" alt="Peters' Bakery" class="store-avatar">
+      <div class="store-details">
+        <div style="display: flex; gap: 8px; margin-bottom: 6px; flex-wrap: wrap;">
+          <span class="badge-pill status">&bull; Open For Pre-Orders</span>
+          <span class="badge-pill notice">48-Hour Lead Time Required</span>
+          <span class="badge-pill">Pickup Only</span>
+        </div>
+        <h1>Peters' Bakery &mdash; Online Ordering</h1>
+        <div class="store-meta-row">
+          <div class="store-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>3108 Alum Rock Ave, San Jose, CA 95127</span>
+          </div>
+          <div class="store-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Tue – Sat: 6:30 AM – 6:00 PM</span>
+          </div>
+          <div class="store-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+14082583529" style="color: inherit; text-decoration: none;">(408) 258-3529</a>
+          </div>
+        </div>
+      </div>
+      <div class="fulfillment-card">
+        <div class="fulfillment-title">Fulfillment</div>
+        <div class="fulfillment-val">Store Pickup</div>
+        <div class="fulfillment-sub">&bull; Earliest Date: <span id="hero-earliest-date">Loading...</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Category Navigation Bar -->
+  <nav class="category-sticky-bar">
+    <div class="category-scroll-wrapper">
+      <button class="cat-tab-btn active" onclick="scrollToCategory('burnt-almond')">Burnt Almond Cakes</button>
+      <button class="cat-tab-btn" onclick="scrollToCategory('pastries')">Pastries & Cream</button>
+      <button class="cat-tab-btn" onclick="scrollToCategory('specialty-cakes')">Specialty Cakes</button>
+      <button class="cat-tab-btn" onclick="scrollToCategory('pies')">Pies & Tarts</button>
+      <button class="cat-tab-btn" onclick="scrollToCategory('cookies')">Cookies & Bars</button>
+      <button class="cat-tab-btn" onclick="scrollToCategory('breads')">Artisan Breads</button>
+    </div>
+  </nav>
+
+  <!-- Main Layout -->
+  <main class="toast-main-layout">
+    
+    <!-- Left Column: Menu Items -->
+    <div class="menu-list-col">
+      <div class="menu-filter-bar">
+        <input type="text" id="menu-search-input" class="menu-search-input" placeholder="Search cakes, pastries, pies, cookies...">
+      </div>
+
+      <!-- 1. Burnt Almond Cakes Section -->
+      <section class="menu-section" id="cat-burnt-almond">
+        <h2 class="section-title">Signature Burnt Almond Cakes</h2>
+        <p class="section-desc">Our world-famous 1936 recipe: delicate white cake split and filled with rich Bavarian custard, frosted with whipped custard, and generously encrusted in toasted crushed sugar-glazed almonds.</p>
+        
+        <div class="items-grid">
+          
+          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (8&quot; Round)', 39.50, '/assets/images/gallery-12.jpg', 'Our most popular size! Serves 10–12 guests. Split layers with house Bavarian custard and toasted almonds.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Burnt Almond Cake &mdash; 8" Round</h3>
+                <p class="item-desc">Our flagship size serving 10–12. Filled with scratch-made custard and toasted crunchy almonds.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$39.50</span>
+                <button class="btn-add-item">Customize</button>
+              </div>
+            </div>
+            <img src="/assets/images/gallery-12.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Cake 8-inch" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (7&quot; Round)', 32.50, '/assets/images/burnt-almond.jpg', 'Perfect for intimate dinners. Serves 6–8 guests. Traditional Bavarian custard.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Burnt Almond Cake &mdash; 7" Round</h3>
+                <p class="item-desc">Serves 6–8 guests. Traditional Bavarian custard, white cake, and crushed sugar almonds.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$32.50</span>
+                <button class="btn-add-item">Customize</button>
+              </div>
+            </div>
+            <img src="/assets/images/burnt-almond.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Cake 7-inch" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (10&quot; Round)', 52.00, '/assets/images/gallery-12.jpg', 'Serves 16–20 guests. Generous layers for parties, birthdays, and celebrations.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Burnt Almond Cake &mdash; 10" Round</h3>
+                <p class="item-desc">Serves 16–20 guests. Hand-crafted with our original 1936 Bavarian custard.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$52.00</span>
+                <button class="btn-add-item">Customize</button>
+              </div>
+            </div>
+            <img src="/assets/images/gallery-12.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Cake 10-inch" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (Half Sheet)', 95.00, '/assets/images/gallery-13.png', 'Serves 35–40 guests. Full celebration sheet cake completely covered in toasted almonds.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Burnt Almond Cake &mdash; Half Sheet</h3>
+                <p class="item-desc">Serves 35–40 guests. Ideal for weddings, office celebrations, and large family gatherings.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$95.00</span>
+                <button class="btn-add-item">Customize</button>
+              </div>
+            </div>
+            <img src="/assets/images/gallery-13.png" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Sheet Cake" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="addDirectItem('Pumpkin Burnt Almond Cake (Seasonal)', 42.00, '/assets/images/gallery-6.jpg', 'Autumn special white sponge with spiced pumpkin custard and crunchy almonds.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Pumpkin Burnt Almond Cake (Seasonal)</h3>
+                <p class="item-desc">Autumn specialty! Infused with seasonal pumpkin spices and toasted glazed almonds.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$42.00</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/gallery-6.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Pumpkin Burnt Almond Cake" class="item-image" loading="lazy">
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 2. Pastries Section -->
+      <section class="menu-section" id="cat-pastries">
+        <h2 class="section-title">Pastries & Cream Pastries</h2>
+        <p class="section-desc">Traditional European-style choux, flaky puff pastry, éclairs, and cream horns baked fresh daily at dawn.</p>
+
+        <div class="items-grid">
+
+          <div class="item-card" onclick="addDirectItem('Chocolate Éclair (Bavarian Custard)', 5.50, '/assets/images/chocolate-eclair.jpg', 'Choux pastry filled with authentic custard and dipped in dark chocolate.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Chocolate Éclair</h3>
+                <p class="item-desc">Crisp choux pastry shell brimming with our famous Bavarian custard and dipped in glossy chocolate fondant.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$5.50</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/chocolate-eclair.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Chocolate Éclair" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="addDirectItem('Sugared Cream Horn', 4.75, '/assets/images/cream-horn.jpg', 'Crisp puff pastry horn rolled in coarse sugar and piped with fluffy whipped cream.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Sugared Cream Horn</h3>
+                <p class="item-desc">Flaky horn of caramelized puff pastry filled to the brim with fluffy sweet whipped cream.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$4.75</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/cream-horn.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Cream Horn" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="addDirectItem('Dutch Apple Turnover', 4.50, '/assets/images/apple-turnover.jpg', 'Flaky pastry filled with spiced sliced apples.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Dutch Apple Turnover</h3>
+                <p class="item-desc">Buttery layered turnover generously packed with cinnamon-stewed orchard apples.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$4.50</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/apple-turnover.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Apple Turnover" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="addDirectItem('Fresh Fruit Tart (Individual)', 6.25, '/assets/images/fruit-tart.jpg', 'Shortbread shell, vanilla pastry cream, glazed strawberries, blueberries, kiwi.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Fresh Fruit Tart</h3>
+                <p class="item-desc">Crisp sweet shortbread crust lined with chocolate, rich pastry cream, and glazed fresh market berries.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$6.25</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/fruit-tart.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Fruit Tart" class="item-image" loading="lazy">
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. Specialty Cakes Section -->
+      <section class="menu-section" id="cat-specialty-cakes">
+        <h2 class="section-title">Specialty Cakes & Tortes</h2>
+        <p class="section-desc">Hand-piped celebratory cakes crafted from scratch using wholesome butter, cream, and fruits.</p>
+
+        <div class="items-grid">
+
+          <div class="item-card" onclick="addDirectItem('Strawberry Ring Cake', 34.00, '/assets/images/strawberry-ring.jpg', 'Light sponge ring with fresh strawberries and whipped cream.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Strawberry Ring Cake</h3>
+                <p class="item-desc">Fluffy sponge cake ring layered with California strawberries and real whipped cream rosettes.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$34.00</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/strawberry-ring.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Strawberry Ring Cake" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="addDirectItem('Peters Beehive Cake', 36.00, '/assets/images/beehive.jpg', 'Heritage honey cake glazed with almond slivers and custard.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Peters' Beehive Cake</h3>
+                <p class="item-desc">Old-world recipe infused with natural honey, filled with custard, and crowned with toasted sliced almonds.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$36.00</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/beehive.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Beehive Cake" class="item-image" loading="lazy">
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. Pies & Tarts Section -->
+      <section class="menu-section" id="cat-pies">
+        <h2 class="section-title">Pies & Tarts</h2>
+        <p class="section-desc">Hand-crimped flaky crust pies made with local fruit and classic cooked custard creams.</p>
+
+        <div class="items-grid">
+
+          <div class="item-card" onclick="addDirectItem('Classic Banana Cream Pie (9&quot;)', 25.00, '/assets/images/banana-cream-pie.jpg', 'Flaky pie crust, ripe bananas, cooked vanilla custard, whipped cream.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Classic Banana Cream Pie</h3>
+                <p class="item-desc">Layers of fresh sliced bananas and rich custard topped with mountain-high whipped cream.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$25.00</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/banana-cream-pie.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Cream Pie" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="addDirectItem('Old-Fashioned Dutch Apple Pie (9&quot;)', 24.00, '/assets/images/apple-pie.jpg', 'Tart granny smith apples with brown sugar cinnamon streusel.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Old-Fashioned Apple Pie</h3>
+                <p class="item-desc">Loaded with tart spiced apples in a golden hand-crimped butter pastry crust.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$24.00</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/apple-pie.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Apple Pie" class="item-image" loading="lazy">
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. Cookies & Bars Section -->
+      <section class="menu-section" id="cat-cookies">
+        <h2 class="section-title">Cookies, Brownies & Bars</h2>
+        <p class="section-desc">Scratch-baked drop cookies, butter shortbread, and rich chocolate fudge brownies.</p>
+
+        <div class="items-grid">
+
+          <div class="item-card" onclick="addDirectItem('Assorted Bakery Cookie Box (1 Dozen)', 18.50, '/assets/images/cookies.jpg', 'Mexican wedding cookies, chocolate chip, snickerdoodle, and almond shortbread.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Assorted Cookie Box (Dozen)</h3>
+                <p class="item-desc">A festive dozen of Peters' most loved cookies: Mexican wedding, shortbread, and chocolate chip.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$18.50</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/cookies.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Cookies Box" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="addDirectItem('Famous Fruit Bars & Brownies (Box of 6)', 16.50, '/assets/images/gallery-11.jpg', 'Apricot jam bars, raspberry crumb bars, and rich fudge brownies.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Fruit Bars & Brownies</h3>
+                <p class="item-desc">Assorted scratch-baked oat crumble jam bars and decadent chocolate fudge brownies.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$16.50</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/gallery-11.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Fruit Bars and Brownies" class="item-image" loading="lazy">
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 6. Artisan Breads Section -->
+      <section class="menu-section" id="cat-breads">
+        <h2 class="section-title">Artisan Breads & Rolls</h2>
+        <p class="section-desc">European-style loaves baked daily in our heritage hearth deck ovens.</p>
+
+        <div class="items-grid">
+
+          <div class="item-card" onclick="addDirectItem('Traditional Portuguese Loaf', 6.50, '/assets/images/breads.jpg', 'Crusty exterior, soft airy crumb, baked daily.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Traditional Portuguese Loaf</h3>
+                <p class="item-desc">San Jose favorite: crusty hearth loaf with an irresistibly tender, airy crumb.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$6.50</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/breads.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Portuguese Bread" class="item-image" loading="lazy">
+          </div>
+
+          <div class="item-card" onclick="addDirectItem('Artisan Morning Rolls & Buns', 7.50, '/assets/images/gallery-3.jpg', 'Warm golden breakfast rolls baked fresh with butter.')">
+            <div class="item-card-info">
+              <div>
+                <h3 class="item-name">Artisan Morning Rolls</h3>
+                <p class="item-desc">Freshly baked morning hearth rolls, tender golden crumb with sweet honey butter glaze.</p>
+              </div>
+              <div class="item-price-row">
+                <span class="item-price">$7.50</span>
+                <button class="btn-add-item">+ Add</button>
+              </div>
+            </div>
+            <img src="/assets/images/gallery-3.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Artisan Morning Rolls" class="item-image" loading="lazy">
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: Toast Order Cart Sidebar -->
+    <aside class="toast-cart-sidebar">
+      <div class="cart-sidebar-title">
+        <span>Your Order</span>
+        <span id="cart-item-count-badge" class="badge-pill" style="font-size: 0.75rem;">0 items</span>
+      </div>
+
+      <div class="pickup-alert-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span><strong>48-Hour Notice Required:</strong> Pickup at 3108 Alum Rock Ave. Please select your pickup date & window below.</span>
+      </div>
+
+      <div class="pickup-schedule-group">
+        <label for="toast-pickup-date">Pickup Date (Min 48h)</label>
+        <input type="date" id="toast-pickup-date">
+
+        <label for="toast-pickup-time">Pickup Time Window</label>
+        <select id="toast-pickup-time">
+          <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM – 12:00 PM)</option>
+          <option value="Afternoon (12:00 PM - 3:00 PM)">Afternoon (12:00 PM – 3:00 PM)</option>
+          <option value="Late Afternoon (3:00 PM - 5:30 PM)">Late (3:00 PM – 5:30 PM)</option>
+        </select>
+
+        <label for="toast-order-notes">Order Notes (Optional)</label>
+        <input type="text" id="toast-order-notes" placeholder="Special pickup instructions..." maxlength="100">
+      </div>
+
+      <div class="cart-items-list" id="toast-cart-items-list">
+        <!-- Rendered by JavaScript -->
+      </div>
+
+      <div class="cart-totals-section">
+        <div class="totals-row">
+          <span>Subtotal:</span>
+          <span id="toast-subtotal-val">$0.00</span>
+        </div>
+        <div class="totals-row">
+          <span>Estimated Sales Tax (Stripe Tax):</span>
+          <span style="font-style: italic;">Calculated at checkout</span>
+        </div>
+        <div class="totals-row final">
+          <span>Total:</span>
+          <span id="toast-total-val">$0.00</span>
+        </div>
+      </div>
+
+      <button class="btn-toast-checkout" id="toast-checkout-btn" onclick="executeToastCheckout()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>Proceed to Checkout</span>
+      </button>
+
+      <div class="secure-stripe-text">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>Secured with Stripe &bull; Apple Pay &bull; Google Pay &bull; Cards</span>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Item Customization Modal (Toast Tab Style) -->
+  <div class="custom-modal-overlay" id="customize-modal">
+    <div class="custom-modal-dialog">
+      <button class="modal-close-icon" onclick="closeCustomizeModal()">&times;</button>
+      <img src="/assets/images/burnt-almond.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Cake Customizer" id="modal-item-img" class="modal-cake-img">
+      <h3 id="modal-item-title" style="font-size: 1.35rem; font-weight: 800; margin-bottom: 4px;">Customize Cake</h3>
+      <p id="modal-item-desc" style="font-size: 0.85rem; color: var(--toast-text-muted); margin-bottom: 1rem;"></p>
+
+      <div class="option-group-title">1. Select Cake Size</div>
+      <div id="modal-size-options">
+        <div class="option-choice-row selected" onclick="selectModalSize(this, '7&quot; Round', 32.50)">
+          <span><strong>7" Round</strong> &mdash; Serves 6–8</span>
+          <span style="font-weight: 700;">$32.50</span>
+        </div>
+        <div class="option-choice-row" onclick="selectModalSize(this, '8&quot; Round', 39.50)">
+          <span><strong>8" Round</strong> &mdash; Serves 10–12 (Most Popular)</span>
+          <span style="font-weight: 700;">$39.50</span>
+        </div>
+        <div class="option-choice-row" onclick="selectModalSize(this, '10&quot; Round', 52.00)">
+          <span><strong>10" Round</strong> &mdash; Serves 16–20</span>
+          <span style="font-weight: 700;">$52.00</span>
+        </div>
+        <div class="option-choice-row" onclick="selectModalSize(this, 'Half Sheet', 95.00)">
+          <span><strong>Half Sheet</strong> &mdash; Serves 35–40</span>
+          <span style="font-weight: 700;">$95.00</span>
+        </div>
+      </div>
+
+      <div class="option-group-title">2. Choose Custard Filling</div>
+      <select id="modal-filling-select" style="width: 100%; padding: 8px; border: 1px solid var(--toast-gray-border); border-radius: var(--radius-sm); font-size: 0.9rem; margin-bottom: 1rem;">
+        <option value="Traditional Bavarian Custard">Traditional Bavarian Custard (Original 1936 Classic)</option>
+        <option value="Fresh Apricot Jam & Custard">Fresh Apricot Jam & Custard</option>
+        <option value="Seedless Raspberry Jam & Custard">Seedless Raspberry Jam & Custard</option>
+        <option value="Rich Chocolate Custard">Rich Chocolate Custard</option>
+      </select>
+
+      <div class="option-group-title">3. Inscription on Cake (Optional)</div>
+      <input type="text" id="modal-inscription-input" placeholder="e.g. Happy Birthday Sarah!" maxlength="40" style="width: 100%; padding: 8px; border: 1px solid var(--toast-gray-border); border-radius: var(--radius-sm); font-size: 0.9rem; margin-bottom: 1.5rem;">
+
+      <button class="btn-toast-checkout" id="modal-confirm-btn" onclick="confirmCustomizeAdd()">
+        Add to Order &bull; <span id="modal-price-display">$39.50</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Shared Cart State across Peters' Bakery
+    let cart = [];
+    try {
+      const stored = localStorage.getItem('peters_bakery_cart');
+      if (stored) cart = JSON.parse(stored);
+    } catch(e) {}
+
+    let currentItemTitle = '';
+    let currentItemBasePrice = 39.50;
+    let currentItemImg = '/assets/images/burnt-almond.jpg';
+    let currentSelectedSize = '8" Round';
+    let currentSelectedPrice = 39.50;
+
+    function saveCart() {
+      try {
+        localStorage.setItem('peters_bakery_cart', JSON.stringify(cart));
+      } catch(e) {}
+      renderToastCart();
+    }
+
+    function renderToastCart() {
+      const listEl = document.getElementById('toast-cart-items-list');
+      const badgeEl = document.getElementById('cart-item-count-badge');
+      const subtotalEl = document.getElementById('toast-subtotal-val');
+      const totalEl = document.getElementById('toast-total-val');
+      const checkoutBtn = document.getElementById('toast-checkout-btn');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      badgeEl.innerText = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
+
+      if (cart.length === 0) {
+        listEl.innerHTML = `
+          <div class="cart-empty-view">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" style="margin: 0 auto 0.75rem;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <p><strong>Your order is empty</strong></p>
+            <p style="font-size: 0.8rem; margin-top: 4px;">Select delicious items from the menu to start your order.</p>
+          </div>
+        `;
+        subtotalEl.innerText = '$0.00';
+        totalEl.innerText = '$0.00';
+        checkoutBtn.disabled = true;
+        return;
+      }
+
+      checkoutBtn.disabled = false;
+      let subtotal = 0;
+
+      listEl.innerHTML = cart.map((item, idx) => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        return `
+          <div class="toast-cart-item">
+            <div style="flex: 1; padding-right: 8px;">
+              <div class="toast-cart-item-title">${item.name}</div>
+              ${item.details ? `<div class="toast-cart-item-meta">${item.details}</div>` : ''}
+              <div class="toast-cart-item-actions">
+                <button class="qty-btn" onclick="updateQty(${idx}, -1)">&minus;</button>
+                <span style="font-weight: 700; font-size: 0.85rem;">${item.quantity}</span>
+                <button class="qty-btn" onclick="updateQty(${idx}, 1)">&#43;</button>
+                <button onclick="removeItem(${idx})" style="background: none; border: none; color: #d32f2f; font-size: 0.75rem; cursor: pointer; margin-left: 6px;">Remove</button>
+              </div>
+            </div>
+            <div style="font-weight: 700; font-size: 0.9rem;">
+              $${itemTotal.toFixed(2)}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+      totalEl.innerText = `$${subtotal.toFixed(2)}`;
+    }
+
+    function updateQty(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].quantity += delta;
+      if (cart[idx].quantity <= 0) {
+        cart.splice(idx, 1);
+      }
+      saveCart();
+    }
+
+    function removeItem(idx) {
+      cart.splice(idx, 1);
+      saveCart();
+    }
+
+    function addDirectItem(name, price, img, details) {
+      const existing = cart.find(i => i.name === name && i.details === details);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: 'item-' + name.toLowerCase().replace(/[^a-z0-9]/g, '-'),
+          name: name,
+          price: price,
+          img: img,
+          details: details,
+          quantity: 1
+        });
+      }
+      saveCart();
+    }
+
+    function openCustomizeModal(name, price, img, desc) {
+      currentItemTitle = name;
+      currentItemBasePrice = price;
+      currentItemImg = img;
+      currentSelectedSize = '8" Round';
+      currentSelectedPrice = 39.50;
+
+      document.getElementById('modal-item-title').innerText = name;
+      document.getElementById('modal-item-desc').innerText = desc;
+      document.getElementById('modal-item-img').src = img;
+      document.getElementById('modal-price-display').innerText = `$${currentSelectedPrice.toFixed(2)}`;
+      document.getElementById('customize-modal').classList.add('active');
+    }
+
+    function closeCustomizeModal() {
+      document.getElementById('customize-modal').classList.remove('active');
+    }
+
+    function selectModalSize(el, size, price) {
+      document.querySelectorAll('#modal-size-options .option-choice-row').forEach(r => r.classList.remove('selected'));
+      el.classList.add('selected');
+      currentSelectedSize = size;
+      currentSelectedPrice = price;
+      document.getElementById('modal-price-display').innerText = `$${price.toFixed(2)}`;
+    }
+
+    function confirmCustomizeAdd() {
+      const filling = document.getElementById('modal-filling-select').value;
+      const inscription = document.getElementById('modal-inscription-input').value.trim();
+      const details = `Size: ${currentSelectedSize} | Filling: ${filling}${inscription ? ` | Inscription: "${inscription}"` : ''}`;
+
+      addDirectItem(`Burnt Almond Cake (${currentSelectedSize})`, currentSelectedPrice, currentItemImg, details);
+      closeCustomizeModal();
+    }
+
+    function scrollToCategory(catId) {
+      document.querySelectorAll('.cat-tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      const target = document.getElementById('cat-' + catId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Set 48h lead time dates
+    function initDates() {
+      const minDate = new Date();
+      minDate.setDate(minDate.getDate() + 2);
+      const minStr = minDate.toISOString().split('T')[0];
+      const dateInput = document.getElementById('toast-pickup-date');
+      if (dateInput) {
+        dateInput.min = minStr;
+        dateInput.value = minStr;
+      }
+
+      const options = { weekday: 'short', month: 'short', day: 'numeric' };
+      const heroDateEl = document.getElementById('hero-earliest-date');
+      if (heroDateEl) {
+        heroDateEl.innerText = minDate.toLocaleDateString('en-US', options);
+      }
+    }
+
+    // Execute Stripe Checkout
+    async function executeToastCheckout() {
+      if (cart.length === 0) return;
+
+      const checkoutBtn = document.getElementById('toast-checkout-btn');
+      const dateInput = document.getElementById('toast-pickup-date');
+      const timeSelect = document.getElementById('toast-pickup-time');
+      const notesInput = document.getElementById('toast-order-notes');
+
+      const pickupDate = dateInput ? dateInput.value : '';
+      const pickupTime = timeSelect ? timeSelect.value : 'Morning (9:00 AM - 12:00 PM)';
+      const customerNotes = notesInput ? notesInput.value : '';
+
+      checkoutBtn.disabled = true;
+      checkoutBtn.innerHTML = `
+        <span class="spinner" style="width: 16px; height: 16px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; display: inline-block; animation: spin 0.6s linear infinite;"></span>
+        <span>Redirecting to Checkout...</span>
+      `;
+
+      try {
+        const res = await fetch('/api/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: cart,
+            pickupDate,
+            pickupTime,
+            customerNotes: customerNotes ? `[Toast Tab Order] ${customerNotes}` : '[Toast Tab Order]'
+          })
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Failed to initialize checkout');
+
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error('No checkout URL returned from server');
+        }
+      } catch (err) {
+        alert(`Checkout Error: ${err.message}`);
+        checkoutBtn.disabled = false;
+        checkoutBtn.innerHTML = `<span>Proceed to Checkout</span>`;
+      }
+    }
+
+    // Realtime search filter
+    const searchInput = document.getElementById('menu-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        document.querySelectorAll('.item-card').forEach(card => {
+          const name = card.querySelector('.item-name')?.innerText.toLowerCase() || '';
+          const desc = card.querySelector('.item-desc')?.innerText.toLowerCase() || '';
+          if (name.includes(query) || desc.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    initDates();
+    renderToastCart();
+  </script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+{
+  "home": {
+    "title": "Home | Peters' Bakery",
+    "images": [
+      {
+        "src": "https://static.wixstatic.com/media/302b28_ba0854928dbe482bbda8a7edfceb0b27~mv2.png/v1/fill/w_233,h_233,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Peters%20Logo%202.png",
+        "alt": "Peters Logo 2.png"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png",
+        "alt": "Yelp!"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png",
+        "alt": "Facebook"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Instagram.png",
+        "alt": "Instagram"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_bc7125385fcf422cad29fbe20a2b237c~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Twitter.png",
+        "alt": "Twitter"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png",
+        "alt": "images"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_a9f933d117ea4e928422c1901334a794~mv2.png/v1/fill/w_940,h_530,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/upscalemedia-transformed.png",
+        "alt": "upscalemedia-transformed.png"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_bdca28604ccb45bc85d79632e5ab4296~mv2.jpeg/v1/fill/w_300,h_275,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Straw%20Ring.jpeg",
+        "alt": "Straw Ring"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_31079cc37dca4bed8948b3e428acf61e~mv2.jpg/v1/fill/w_301,h_275,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Burnt%20Almond.jpg",
+        "alt": "Burnt Almond.jpg"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_032bf596d9b04be8868be780d95dcb22~mv2.jpg/v1/fill/w_301,h_275,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Beehive_sm.jpg",
+        "alt": "Beehive_sm.jpg"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_7354bcbfd7e34cf7bd051fc001ed8106~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/PetersBakery2022-98.jpg",
+        "alt": "PetersBakery2022-98.jpg"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_3b8517af21ca4cf59022f312637b6a35~mv2.png/v1/fill/w_20,h_29,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_3b8517af21ca4cf59022f312637b6a35~mv2.png",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/9e3f5b8b0949efaff05a67bf63b10a7b.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e3f5b8b0949efaff05a67bf63b10a7b.png",
+        "alt": ""
+      }
+    ],
+    "text": [
+      "Since 1936 \"If you don\u2019t want to eat it yourself, don\u2019t sell it.\"",
+      "Hours: Tue - Sat 6:30 - 6:00",
+      "You know that feeling you get when your taste buds are happy? That\u2019s what happens to every person who stops by Peters' Bakery. Our baked goods are made freshly every day with the finest, most delicious, local ingredients.",
+      "At Peters\u2019 Bakery, we\u2019ve been baking unforgettable treats since 1936, using time-honored recipes and only the highest-quality ingredients. We\u2019re best known for our iconic Burnt Almond Cake, but our menu offers much more\u2014from fruit and cream pies like apple, berry, and coconut, to rich chocolate and lemon cream pies. Our pastry case is filled daily with fresh doughnuts, buttery danish, tender croissants, and whipped cream \u00e9clairs. We bake a wide variety of cookies and bars, including shortbread, chocolate chip, Mexican wedding cookies, brownies, and our famous fruit bars. Our breads range from sweet Portuguese loaves to banana nut, cinnamon swirl, and classic white. We also feature seasonal favorites like Strawberry Rings in spring and summer, Pumpkin Burnt Almond Cake in autumn, and festive holiday staples like Stollen and Pfeffern\u00fcsse. Whether you're planning a celebration or just craving something sweet, Peters\u2019 Bakery has something handmade and delicious waiting for you.",
+      "Our seasonal delight. Cream puff filled with fresh strawberries, whipped cream, and custard. Available during Spring and Summer.",
+      "Our signature cake. A single layer white cake, split in two, with custard filling and icing, then covered in almonds",
+      "Our traditional almond coffee cake, split in two & filled with custard.",
+      "3108 Alum Rock Ave. San Jose, CA 95127",
+      "Tuesday - Saturday 6:30am - 6:00pm",
+      "\u00a91936 by Peters' Bakery."
+    ]
+  },
+  "about": {
+    "title": "About Us | Peters' Bakery",
+    "images": [
+      {
+        "src": "https://static.wixstatic.com/media/302b28_ba0854928dbe482bbda8a7edfceb0b27~mv2.png/v1/fill/w_233,h_233,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Peters%20Logo%202.png",
+        "alt": "Peters Logo 2.png"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png",
+        "alt": "Yelp!"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png",
+        "alt": "Facebook"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Instagram.png",
+        "alt": "Instagram"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_bc7125385fcf422cad29fbe20a2b237c~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Twitter.png",
+        "alt": "Twitter"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png",
+        "alt": "images"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_c98ab13b333242a5a52009c4ba370033~mv2.jpg/v1/fill/w_771,h_451,al_c,lg_1,q_80,enc_avif,quality_auto/muralcover.jpg",
+        "alt": "muralcover.jpg"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_5d0e1f8f371446df8436ae9846108125~mv2.png/v1/fill/w_237,h_352,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_5d0e1f8f371446df8436ae9846108125~mv2.png",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_520fc87cdd5d4c0a8184ec6198af8252~mv2.jpg/v1/fill/w_392,h_293,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_520fc87cdd5d4c0a8184ec6198af8252~mv2.jpg",
+        "alt": "11864915_10205315633437783_4470534411991694112_o.jpg"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_d15af6f46968462cb39a5b853a722844~mv2.jpg/v1/fill/w_488,h_336,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_d15af6f46968462cb39a5b853a722844~mv2.jpg",
+        "alt": "1972.jpg"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/9e3f5b8b0949efaff05a67bf63b10a7b.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e3f5b8b0949efaff05a67bf63b10a7b.png",
+        "alt": ""
+      }
+    ],
+    "text": [
+      "Since 1936 \"If you don\u2019t want to eat it yourself, don\u2019t sell it.\"",
+      "Hours: Tue - Sat 6:30 - 6:00",
+      "THE STORY OF PETERS' BAKERY",
+      "When you walk into Peters\u2019 Bakery, you\u2019re not just picking up a cake\u2014you\u2019re stepping into a living piece of San Jose history. The scent of sweet rolls in the oven, the flurry of bakers in white aprons, and the gentle hum of mixers in the back\u2014it\u2019s all part of a tradition that began nearly 90 years ago, with a man named Tony Peters and the family values baked into his soul.",
+      "Tony was born in 1907 to a humble family on a ranch in Berryessa. His father was born right here in San Jose, and his mother came from Faial in the Azores, part of a long lineage of Portuguese immigrants whose roots reached across the Atlantic and into the fertile soil of California. His grandparents were also from the Azores, and they brought with them not just their language and customs\u2014but a fierce work ethic, a love of family, and a reverence for good food made with care.",
+      "When Tony began school, he couldn\u2019t speak a word of English. But he learned quickly\u2014especially the language of hard work. During the Great Depression, he spent his weekdays working for Studebaker, and every weekend, he\u2019d take the train to San Francisco, learning the craft of baking at his uncle\u2019s shop. That\u2019s where he fell in love with the quiet discipline of dough, the artistry of pie crusts, and the joy of creating something from nothing.",
+      "On April 15, 1936, Tony opened the first Peters\u2019 Bakery at Delmas and San Carlos Streets in downtown San Jose. Just two years later, he opened a second location on Alum Rock Avenue, right next to Poisal\u2019s Variety Market. The downtown shop thrived but was eventually sold in 1947 to Tony\u2019s apprentice, Richard Sota, who continued the legacy under the name Dick\u2019s Bakery.",
+      "Meanwhile, Tony turned his full attention to East San Jose, where his horses once grazed on a 20-acre pasture across from his original Alum Rock location. In 1947, he built the now-iconic Peters\u2019 Bakery building on that very land\u2014and moved the bakery across",
+      "the street to its permanent home. That same building still stands today, filled with the same warmth, recipes, and community spirit. Tony wasn\u2019t just a baker. He was a rancher, a horseman, a family man, and a fixture in the East Side community. He served as President of the Santa Clara County Horsemen\u2019s Association, where he helped organize community events, led trail rides, and brought people together over shared passions\u2014whether it was horses or home-baked pies. He loved the camaraderie of the group just as much as he loved his time in the saddle. If there was a barbecue pit to build or a birthday dance to plan, Tony was right there with a shovel in one hand and a smile in the other.",
+      "He trained over 100 bakers in his lifetime, many of whom opened bakeries of their own. In 1974, he made local headlines when, at age 66, he helped foil an armed robbery\u2014wrestling a shotgun-wielding bandit to the ground with the help of his crew. A few pastries may have been lost in the scuffle, but the shop still opened right on time.",
+      "Tony believed in doing things right. He always said, \u201cIf you don\u2019t want to eat it yourself, don\u2019t sell it.\u201d That philosophy became the heart of the bakery.",
+      "If you don\u2019t want to eat it yourself, don\u2019t sell it.",
+      "Even into his eighties, Tony could be found rolling out pie dough by hand, slipping extra pastries to longtime customers, and guiding his team with the same passion that built the business from scratch. When asked about retirement, he\u2019d just smile and say, \u201cWhether I do it willingly or feet first.\u201d",
+      "Whether I do it willingly or feet first.",
+      "Tony passed away in 1996, but his legacy lives on. Today, Peters\u2019 Bakery is still owned and operated by two of Tony\u2019s grandchildren, making it the oldest family-owned bakery in Silicon Valley. The recipes haven\u2019t changed. The quality hasn\u2019t wavered. And the love? It\u2019s baked into everything we do.",
+      "So come on in. Share a story. Take home a slice of burnt almond cake.",
+      "You\u2019re not just stepping into a bakery\u2014you\u2019re becoming part of a story that began nearly a century ago and still rises fresh every morning.",
+      "\u00a91936 by Peters' Bakery."
+    ]
+  },
+  "faq": {
+    "title": "FAQ | Peters' Bakery",
+    "images": [
+      {
+        "src": "https://static.wixstatic.com/media/302b28_ba0854928dbe482bbda8a7edfceb0b27~mv2.png/v1/fill/w_233,h_233,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Peters%20Logo%202.png",
+        "alt": "Peters Logo 2.png"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png",
+        "alt": "Yelp!"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png",
+        "alt": "Facebook"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Instagram.png",
+        "alt": "Instagram"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_bc7125385fcf422cad29fbe20a2b237c~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Twitter.png",
+        "alt": "Twitter"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png",
+        "alt": "images"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/9e3f5b8b0949efaff05a67bf63b10a7b.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e3f5b8b0949efaff05a67bf63b10a7b.png",
+        "alt": ""
+      }
+    ],
+    "text": [
+      "Since 1936 \"If you don\u2019t want to eat it yourself, don\u2019t sell it.\"",
+      "Hours: Tue - Sat 6:30 - 6:00",
+      "FREQUENTLY ASKED QUESTIONS",
+      "Here are some of the most commonly asked questions we\u2019ve received from our customers. If you don\u2019t find the answer you\u2019re looking for, please reach out and we will get back to you shortly.",
+      "A: Unfortunately, no. We have looked into partnering with companies such as Goldbelly, but have not been able to find anyone who can meet our requirements. Thermal shipping bags and boxes for items that need to be refrigerated are expensive for a small business. Also, we feel we lose quality control as freshness is lost during freezing and shipping time.",
+      "Q: WOULD I HAVE TO STAY IN LINE IF I ALREADY PRE ORDERED?",
+      "A: Yes. We are a small company, with only a few registers, limited staff, and one main door. Logistically it\u2019s very difficult to facilitate this request. However, on most Saturdays and major holidays we will open a side door for pre-orders when we have the extra staffing to triage the line outside.",
+      "Q: DOES THE BURNT ALMOND CAKE HAVE PEANUTS, ALCOHOL, OR GELATIN IN THE INGREDIENTS?",
+      "Q: DO YOU MAKE ANY SUGAR FREE, GLUTEN FREE, OR VEGAN ITEMS?",
+      "A: We do not. There are so many good, specialty bakeries in the area doing amazing things with these requests. We keep to what do well, and we let them do what they do well.",
+      "Q: IS IT POSSIBLE TO DO A GENDER REVEAL BURNT ALMOND CAKE?",
+      "A: Absolutely. Give us a call and we\u2019ll be happy to discuss what you would like done.",
+      "Q: CAN YOU PRINT AN EDIBLE IMAGE ON THE CAKE?",
+      "A: We do not. But, you can bring us an edible image and we will be happy to put in on your cake.",
+      "Q: ABOUT HOW LONG DO YOUR CAKES LAST?",
+      "A: Depends on a lot of variables. As a general rule of thumb, 1 week. Items with custard and cream should be refrigerated and then removed about an hour before you would like to eat it (taste is perfect around room temperature). The more air-tight the container, the longer it will last. Tupperware, Cake Displays, and Plastic Wrap are all good ways to extend the life of your cakes.",
+      "Q: HOW EARLY IN ADVANCE CAN YOU CALL TO PRE-ORDER?",
+      "A: Ordering online can be done 48 hours in advance. If you call over the phone, you only need to call us the day before you need it. The exception is wedding cakes. We do need 2 weeks for wedding cakes.",
+      "Q: ARE YOU OPEN ON THANKSGIVING AND CHRISTMAS?",
+      "A: We are open the day before Thanksgiving and open on Christmas Eve until 5:00. We are closed on Thanksgiving and Christmas.",
+      "Q: WHERE CAN I FIND PRICES FOR YOUR ITEMS?",
+      "Q: DO YOU MAKE WEDDING CAKES?",
+      "A: We do. As long as we have 2 weeks notice give us a call and we\u2019ll be happy to discuss what you would like done.",
+      "Q: WHAT IS YOUR CANCELLATION POLICY?",
+      "A: We provide a full return to any order cancelled within 24 hours of scheduled pickup. Wedding Cakes order require a 2 week cancellation.",
+      "Q: I FORGOT TO PICK UP MY ORDER. CAN I STILL COME GET IT?",
+      "A: If you forgot to pick up your order please call us that same day if possible. We will keep all orders for one day. After which the product will be donated to local charity. If you order was for Saturday, please call us before end of business if you would like to pick it up on Tuesday.",
+      "Q: CAN I GET A REFUND IF MY ORDER WAS DONATED BECAUSE I DIDNT PICK IT UP?",
+      "A: We understand that life can get busy, and sometimes things slip through the cracks. However, we are not able to offer refunds for orders that were not picked up by the agreed-upon date and were subsequently donated.",
+      "When you place an order with us, we begin preparing it on that scheduled day, from sourcing fresh ingredients to dedicating staff time, and covering the cost of utilities, insurance, etc. to bring your order to life. These costs are incurred regardless of whether the item is picked up.",
+      "To help reduce waste and serve our community, any unclaimed items are donated to local charities the two days after the scheduled pickup. We hope you understand that offering refunds in these situations would result in a financial loss for the bakery.",
+      "Q: HOW CAN I GET A REFUND?",
+      "A: See our Return and Refund Policy",
+      "Return and Refund Policy",
+      "\u00a91936 by Peters' Bakery."
+    ]
+  },
+  "gallery": {
+    "title": "Gallery | Peters' Bakery",
+    "images": [
+      {
+        "src": "https://static.wixstatic.com/media/302b28_ba0854928dbe482bbda8a7edfceb0b27~mv2.png/v1/fill/w_233,h_233,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Peters%20Logo%202.png",
+        "alt": "Peters Logo 2.png"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png",
+        "alt": "Yelp!"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png",
+        "alt": "Facebook"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Instagram.png",
+        "alt": "Instagram"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_bc7125385fcf422cad29fbe20a2b237c~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Twitter.png",
+        "alt": "Twitter"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png",
+        "alt": "images"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_8aada39406634d84baa361e4e03a2bf0~mv2.jpg/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_8aada39406634d84baa361e4e03a2bf0~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_f7780bd30825485b833515d1f2208c50~mv2.jpg/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_f7780bd30825485b833515d1f2208c50~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_3795001c917f46a9bef261bcbcb25399~mv2.jpg/v1/fill/w_306,h_306,q_90,enc_avif,quality_auto/302b28_3795001c917f46a9bef261bcbcb25399~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_390084d95b024e5a95980e5b62b29d5a~mv2.jpg/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_390084d95b024e5a95980e5b62b29d5a~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_450677beea454262af5133b2fb7ff336~mv2.jpg/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_450677beea454262af5133b2fb7ff336~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_3191b32ea2c64581bf0fff3f16857726~mv2.jpg/v1/fill/w_306,h_306,q_90,enc_avif,quality_auto/302b28_3191b32ea2c64581bf0fff3f16857726~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_53a7a98de16c4ef08c9ab41fe9374599~mv2.jpg/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_53a7a98de16c4ef08c9ab41fe9374599~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_d3ab1f7436ff43a6bef3e4573a9fa0be~mv2.jpg/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_d3ab1f7436ff43a6bef3e4573a9fa0be~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_b20cc6290c794ef7a6630e23bba13f16~mv2.jpg/v1/fill/w_306,h_306,q_90,enc_avif,quality_auto/302b28_b20cc6290c794ef7a6630e23bba13f16~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_c194d667dae9406098e00991a438ae81~mv2.jpg/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_c194d667dae9406098e00991a438ae81~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_eb979268cfbb4be0ac53eca1b0e0d8e6~mv2.jpg/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_eb979268cfbb4be0ac53eca1b0e0d8e6~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_5bda3dcb7af24fb58d3b565da4eb0340~mv2.jpg/v1/fill/w_306,h_306,q_90,enc_avif,quality_auto/302b28_5bda3dcb7af24fb58d3b565da4eb0340~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_4ebd569047f545668e7afe1f7cfd0766~mv2.png/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_4ebd569047f545668e7afe1f7cfd0766~mv2.png",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_fc8e470b4ca84b79996f303e9e82f664~mv2.png/v1/fill/w_307,h_306,q_90,enc_avif,quality_auto/302b28_fc8e470b4ca84b79996f303e9e82f664~mv2.png",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_c3c6e400ce394c5c8a00dd58e29c731d~mv2.jpg/v1/fill/w_306,h_306,q_90,enc_avif,quality_auto/302b28_c3c6e400ce394c5c8a00dd58e29c731d~mv2.jpg",
+        "alt": ""
+      },
+      {
+        "src": "https://static.wixstatic.com/media/9e3f5b8b0949efaff05a67bf63b10a7b.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e3f5b8b0949efaff05a67bf63b10a7b.png",
+        "alt": ""
+      }
+    ],
+    "text": [
+      "Since 1936 \"If you don\u2019t want to eat it yourself, don\u2019t sell it.\"",
+      "Hours: Tue - Sat 6:30 - 6:00",
+      "\u00a91936 by Peters' Bakery."
+    ]
+  },
+  "refund": {
+    "title": "FAQ | Peters' Bakery",
+    "images": [
+      {
+        "src": "https://static.wixstatic.com/media/302b28_ba0854928dbe482bbda8a7edfceb0b27~mv2.png/v1/fill/w_233,h_233,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Peters%20Logo%202.png",
+        "alt": "Peters Logo 2.png"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png",
+        "alt": "Yelp!"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png",
+        "alt": "Facebook"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Instagram.png",
+        "alt": "Instagram"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_bc7125385fcf422cad29fbe20a2b237c~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Twitter.png",
+        "alt": "Twitter"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png",
+        "alt": "images"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/9e3f5b8b0949efaff05a67bf63b10a7b.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e3f5b8b0949efaff05a67bf63b10a7b.png",
+        "alt": ""
+      }
+    ],
+    "text": [
+      "Since 1936 \"If you don\u2019t want to eat it yourself, don\u2019t sell it.\"",
+      "Hours: Tue - Sat 6:30 - 6:00",
+      "Return & Refund Policy",
+      "At Peters Bakery, we take great pride in the quality and freshness of our baked goods. Each item is carefully crafted, and we want every customer to be delighted with their order.",
+      "Because our products are perishable, we have the following policy in place:",
+      "Returns Required for Refunds or Credits",
+      "No refund will be given if the order is cancelled within 24 hours of the scheduled pickup time.",
+      "To be eligible for a refund, store credit, or replacement, the majority of the product must be returned to us within 48 business hours of purchase.",
+      "If only a small portion of the product is returned after most of it has been consumed or disgarded, we cannot honor a refund or replacement. If a product truly does not meet expectations, it should be returned largely intact.",
+      "This allows us to evaluate the product and understand what went wrong so we can improve.",
+      "Items Not Eligible for Refund",
+      "Products that are not returned cannot be refunded or credited.",
+      "Unfortunately, we cannot make exceptions, as past misuse of our policy has made this requirement necessary.",
+      "Electronic or physical gift cards are non-refundable and cannot be redeemed for cash.",
+      "All sales are final. Unlike a super-store that orders tens of thousands of shirts and can absorb losses on returns, we sustain a loss on every shirt returned because we cannot resell a shirt that has already been worn and there is no way for us to verify if it has been worn or not. This policy ensures that our customers never have to buy a shirt worn already by someone else.\u200b",
+      "Custom & Specialty Orders",
+      "Because of the time and materials required, custom cakes or large specialty orders may only be refunded if returned within the guidelines above.",
+      "If you forgot to pick up your order please call us that same day if possible. We will keep all orders for one day. After which the product will be donated to a local charity. If your order was for Saturday, please call before end of business if you would like it kept for pickup on Tuesday. \u200b",
+      "How to Request a Refund or Credit",
+      "Please return the product along with your receipt to the bakery within 48 business hours.",
+      "If you believe you did not receive an electronic gift card that was sent, please contact us directly so we can look into the matter.",
+      "Our goal is always to provide the best possible experience. If you are ever unsatisfied, we encourage you to reach out to us directly. We greatly value your feedback\u2014it helps us continue to serve our community with the quality and care you expect from Peters Bakery.",
+      "\u00a91936 by Peters' Bakery."
+    ]
+  },
+  "orders": {
+    "title": "Orders | Peters' Bakery",
+    "images": [
+      {
+        "src": "https://static.wixstatic.com/media/302b28_ba0854928dbe482bbda8a7edfceb0b27~mv2.png/v1/fill/w_233,h_233,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Peters%20Logo%202.png",
+        "alt": "Peters Logo 2.png"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_e4f51512c6a64b839b6d7479f5d5e047~mv2.png",
+        "alt": "Yelp!"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_2381e8a6e7444f4f902e7b649aa3f0ac~mv2.png",
+        "alt": "Facebook"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Instagram.png",
+        "alt": "Instagram"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/11062b_bc7125385fcf422cad29fbe20a2b237c~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Twitter.png",
+        "alt": "Twitter"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/302b28_e53c1cf05cc04ee9b38b6ef9942fc244~mv2.png",
+        "alt": "images"
+      },
+      {
+        "src": "https://static.wixstatic.com/media/9e3f5b8b0949efaff05a67bf63b10a7b.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e3f5b8b0949efaff05a67bf63b10a7b.png",
+        "alt": ""
+      }
+    ],
+    "text": [
+      "Since 1936 \"If you don\u2019t want to eat it yourself, don\u2019t sell it.\"",
+      "Hours: Tue - Sat 6:30 - 6:00",
+      "If this is your first time to Peters\u2019 Bakery, welcome.",
+      "Online orders require a 48 hour lead time.",
+      "Make sure to select your desired pickup date and time during check out.",
+      "A friendly heads up to those of you who are new. We are a small business, with a small lobby and only one main door. There is no separate line for those with a pre-order verse those who are walking in.",
+      "If you are placing an order for a weekend or Holiday, please prepare to arrive earlier than your desired pickup time. There is usually a line out front and we want everyone to be prepared and arrive to their events on time.",
+      "If you are placing an order for a weekend or Holiday, please prepare to arrive earlier than your desired pickup time.",
+      "please prepare to arrive earlier than your desired pickup time.",
+      "When we have adequate staffing, we will open a side door for pre-orders. However, due to staffing shortages, and staffing call outs, this is not always possible.",
+      "Thank you for stopping by our home.",
+      "\u00a91936 by Peters' Bakery."
+    ]
+  }
+}
