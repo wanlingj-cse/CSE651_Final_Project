@@ -1029,10 +1029,83 @@
       position: relative;
     }
 
-    /* FAQ Section */
+    /* FAQ Section Accordion Styles */
     .rewards-faq-section {
       padding: 5rem 0 6rem;
       background: #FFFFFF;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .faq-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .faq-card:hover {
+      border-color: var(--color-almond);
+      box-shadow: var(--shadow-md);
+    }
+    .faq-question-btn {
+      width: 100%;
+      padding: 1.35rem 1.75rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+    .faq-question-text {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.4;
+    }
+    .faq-icon-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-bg-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-caramel);
+      font-size: 0.8rem;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease;
+    }
+    .faq-card.open .faq-icon-arrow {
+      transform: rotate(180deg);
+      background: var(--color-caramel);
+      color: #FFFFFF;
+    }
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    }
+    .faq-card.open .faq-answer,
+    .faq-answer.active {
+      opacity: 1;
+    }
+    .faq-answer-inner {
+      padding: 0 1.75rem 1.5rem 1.75rem;
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      border-top: 1px dashed var(--color-border-light);
+      padding-top: 1.25rem;
     }
 
     /* Responsive */
@@ -2626,20 +2699,45 @@
       }).join('');
     }
 
-    // FAQ Accordion Toggle
+    // FAQ Accordion Toggle — Shows answer on question click
     function initFaqAccordions() {
-      document.querySelectorAll('.faq-question-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', !isExpanded);
-          const answer = btn.nextElementSibling;
-          if (!isExpanded) {
+      document.querySelectorAll('.faq-question-btn').forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const card = btn.closest('.faq-card');
+          const answer = card ? card.querySelector('.faq-answer') : btn.nextElementSibling;
+          if (!card || !answer) return;
+
+          const isOpen = card.classList.contains('open');
+
+          if (!isOpen) {
+            // Expand this answer
+            card.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
             answer.classList.add('active');
+            answer.style.maxHeight = (answer.scrollHeight + 50) + 'px';
           } else {
+            // Collapse this answer
+            card.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
             answer.classList.remove('active');
+            answer.style.maxHeight = '0px';
           }
         });
       });
+
+      // Expand the first FAQ answer by default so customers immediately see it!
+      const firstCard = document.querySelector('.faq-card');
+      if (firstCard) {
+        const firstBtn = firstCard.querySelector('.faq-question-btn');
+        const firstAnswer = firstCard.querySelector('.faq-answer');
+        if (firstBtn && firstAnswer) {
+          firstCard.classList.add('open');
+          firstBtn.setAttribute('aria-expanded', 'true');
+          firstAnswer.classList.add('active');
+          firstAnswer.style.maxHeight = (firstAnswer.scrollHeight + 50) + 'px';
+        }
+      }
     }
 
     // Supabase Config Modal Helpers
