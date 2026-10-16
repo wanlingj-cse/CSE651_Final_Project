@@ -578,6 +578,31 @@
       color: var(--toast-dark);
       margin: 1.25rem 0 0.5rem;
     }
+    .toast-select-dropdown {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--toast-gray-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--toast-dark);
+      background-color: #ffffff;
+      cursor: pointer;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      outline: none;
+    }
+    .toast-select-dropdown:focus {
+      border-color: var(--toast-orange);
+      box-shadow: 0 0 0 3px rgba(255, 90, 0, 0.15);
+    }
+    .modal-size-callout {
+      margin-top: 8px;
+      margin-bottom: 0.75rem;
+      padding: 10px 14px;
+      background: #FFF9F5;
+      border: 1px solid #FFE4D6;
+      border-radius: var(--radius-sm);
+    }
     .option-choice-row {
       display: flex;
       align-items: center;
@@ -691,77 +716,21 @@
         
         <div class="items-grid">
           
-          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (8&quot; Round)', 39.50, '/assets/images/gallery-12.jpg', 'Our most popular size! Serves 10–12 guests. Split layers with house Bavarian custard and toasted almonds.', '8&quot; Round')">
+          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake', 39.50, '/assets/images/gallery-12.jpg', 'Our world-famous 1936 signature cake: delicate white cake filled with Bavarian custard and generously encrusted in toasted crushed almonds.', '8&quot; Round')">
             <div class="item-card-info">
               <div>
-                <h3 class="item-name">Burnt Almond Cake &mdash; 8" Round</h3>
-                <p class="item-desc">Our flagship size serving 10–12. Filled with scratch-made custard and toasted crunchy almonds.</p>
+                <h3 class="item-name">Burnt Almond Cake</h3>
+                <p class="item-desc">Our world-famous signature cake. Choose your size from 7" Round to Full Sheet (serves 6–80 guests). Filled with scratch Bavarian custard and crunchy caramelized almonds.</p>
               </div>
               <div class="item-price-row">
-                <span class="item-price">$39.50</span>
+                <span class="item-price">$32.50 &ndash; $185.00</span>
                 <button class="btn-add-item">Customize</button>
               </div>
             </div>
-            <img src="/assets/images/gallery-12.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Cake 8-inch" class="item-image" loading="lazy">
+            <img src="/assets/images/gallery-12.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Cake" class="item-image" loading="lazy">
           </div>
 
-          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (7&quot; Round)', 32.50, '/assets/images/burnt-almond.jpg', 'Perfect for intimate dinners. Serves 6–8 guests. Traditional Bavarian custard.', '7&quot; Round')">
-            <div class="item-card-info">
-              <div>
-                <h3 class="item-name">Burnt Almond Cake &mdash; 7" Round</h3>
-                <p class="item-desc">Serves 6–8 guests. Traditional Bavarian custard, white cake, and crushed sugar almonds.</p>
-              </div>
-              <div class="item-price-row">
-                <span class="item-price">$32.50</span>
-                <button class="btn-add-item">Customize</button>
-              </div>
-            </div>
-            <img src="/assets/images/burnt-almond.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Cake 7-inch" class="item-image" loading="lazy">
-          </div>
-
-          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (10&quot; Round)', 52.00, '/assets/images/gallery-12.jpg', 'Serves 16–20 guests. Generous layers for parties, birthdays, and celebrations.', '10&quot; Round')">
-            <div class="item-card-info">
-              <div>
-                <h3 class="item-name">Burnt Almond Cake &mdash; 10" Round</h3>
-                <p class="item-desc">Serves 16–20 guests. Hand-crafted with our original 1936 Bavarian custard.</p>
-              </div>
-              <div class="item-price-row">
-                <span class="item-price">$52.00</span>
-                <button class="btn-add-item">Customize</button>
-              </div>
-            </div>
-            <img src="/assets/images/gallery-12.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Cake 10-inch" class="item-image" loading="lazy">
-          </div>
-
-          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (Half Sheet)', 95.00, '/assets/images/gallery-13.png', 'Serves 35–40 guests. Celebration sheet cake completely covered in toasted almonds.', 'Half Sheet')">
-            <div class="item-card-info">
-              <div>
-                <h3 class="item-name">Burnt Almond Cake &mdash; Half Sheet</h3>
-                <p class="item-desc">Serves 35–40 guests. Ideal for weddings, office celebrations, and large family gatherings.</p>
-              </div>
-              <div class="item-price-row">
-                <span class="item-price">$95.00</span>
-                <button class="btn-add-item">Customize</button>
-              </div>
-            </div>
-            <img src="/assets/images/gallery-13.png" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Half Sheet Cake" class="item-image" loading="lazy">
-          </div>
-
-          <div class="item-card" onclick="openCustomizeModal('Burnt Almond Cake (Full Sheet)', 185.00, '/assets/images/gallery-13.png', 'Serves 70–80 guests. Grand celebration full sheet cake generously layered with Bavarian custard and completely encrusted in toasted almonds.', 'Full Sheet')">
-            <div class="item-card-info">
-              <div>
-                <h3 class="item-name">Burnt Almond Cake &mdash; Full Sheet</h3>
-                <p class="item-desc">Serves 70–80 guests. Grand celebration full sheet cake layered with Bavarian custard and crunchy caramelized almonds.</p>
-              </div>
-              <div class="item-price-row">
-                <span class="item-price">$185.00</span>
-                <button class="btn-add-item">Customize</button>
-              </div>
-            </div>
-            <img src="/assets/images/gallery-13.png" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Burnt Almond Full Sheet Cake" class="item-image" loading="lazy">
-          </div>
-
-          <div class="item-card" onclick="addDirectItem('Pumpkin Burnt Almond Cake (Seasonal)', 42.00, '/assets/images/gallery-6.jpg', 'Autumn special white sponge with spiced pumpkin custard and crunchy almonds.')">
+          <div class="item-card" onclick="openCustomizeModal('Pumpkin Burnt Almond Cake (Seasonal)', 42.00, '/assets/images/gallery-6.jpg', 'Autumn specialty! Infused with seasonal pumpkin spices and toasted glazed almonds.', '8&quot; Round', 'Spiced Pumpkin Custard (Seasonal)')">
             <div class="item-card-info">
               <div>
                 <h3 class="item-name">Pumpkin Burnt Almond Cake (Seasonal)</h3>
@@ -769,7 +738,7 @@
               </div>
               <div class="item-price-row">
                 <span class="item-price">$42.00</span>
-                <button class="btn-add-item">+ Add</button>
+                <button class="btn-add-item">Customize</button>
               </div>
             </div>
             <img src="/assets/images/gallery-6.jpg" onerror="this.onerror=null; this.src='/assets/images/burnt-almond.jpg';" alt="Pumpkin Burnt Almond Cake" class="item-image" loading="lazy">
@@ -1065,33 +1034,29 @@
       <h3 id="modal-item-title" style="font-size: 1.35rem; font-weight: 800; margin-bottom: 4px;">Customize Cake</h3>
       <p id="modal-item-desc" style="font-size: 0.85rem; color: var(--toast-text-muted); margin-bottom: 1rem;"></p>
 
-      <div class="option-group-title">1. Select Cake Size</div>
-      <div id="modal-size-options">
-        <div class="option-choice-row selected" onclick="selectModalSize(this, '7&quot; Round', 32.50)">
-          <span><strong>7" Round</strong> &mdash; Serves 6–8</span>
-          <span style="font-weight: 700;">$32.50</span>
+      <div class="option-group-title">1. Select Cake Size &amp; Guest Servings (Scroll to Choose)</div>
+      <select id="modal-size-select" class="toast-select-dropdown" onchange="onSizeSelectChange(this)">
+        <option value="7&quot; Round" data-price="32.50" data-serves="Serves 6–8 guests &bull; Ideal for intimate gatherings">7" Round &mdash; Serves 6–8 guests ($32.50)</option>
+        <option value="8&quot; Round" data-price="39.50" data-serves="Serves 10–12 guests &bull; Flagship &amp; Most Popular Size" selected>8" Round &mdash; Serves 10–12 guests ($39.50) &bull; Most Popular</option>
+        <option value="10&quot; Round" data-price="52.00" data-serves="Serves 16–20 guests &bull; Great for family celebrations &amp; parties">10" Round &mdash; Serves 16–20 guests ($52.00)</option>
+        <option value="Half Sheet" data-price="95.00" data-serves="Serves 35–40 guests &bull; Celebration sheet cake for office parties &amp; large gatherings">Half Sheet &mdash; Serves 35–40 guests ($95.00)</option>
+        <option value="Full Sheet" data-price="185.00" data-serves="Serves 70–80 guests &bull; Grand celebration full sheet cake for weddings &amp; major events">Full Sheet &mdash; Serves 70–80 guests ($185.00)</option>
+      </select>
+
+      <div id="modal-size-callout" class="modal-size-callout">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span id="callout-size-name" style="font-weight: 700; color: var(--toast-dark); font-size: 0.95rem;">8" Round Cake</span>
+          <span id="callout-size-price" style="font-weight: 800; color: var(--toast-orange); font-size: 1rem;">$39.50</span>
         </div>
-        <div class="option-choice-row" onclick="selectModalSize(this, '8&quot; Round', 39.50)">
-          <span><strong>8" Round</strong> &mdash; Serves 10–12 (Most Popular)</span>
-          <span style="font-weight: 700;">$39.50</span>
-        </div>
-        <div class="option-choice-row" onclick="selectModalSize(this, '10&quot; Round', 52.00)">
-          <span><strong>10" Round</strong> &mdash; Serves 16–20</span>
-          <span style="font-weight: 700;">$52.00</span>
-        </div>
-        <div class="option-choice-row" onclick="selectModalSize(this, 'Half Sheet', 95.00)">
-          <span><strong>Half Sheet</strong> &mdash; Serves 35–40</span>
-          <span style="font-weight: 700;">$95.00</span>
-        </div>
-        <div class="option-choice-row" onclick="selectModalSize(this, 'Full Sheet', 185.00)">
-          <span><strong>Full Sheet</strong> &mdash; Serves 70–80</span>
-          <span style="font-weight: 700;">$185.00</span>
+        <div id="callout-size-serves" style="font-size: 0.82rem; color: var(--toast-text-muted); margin-top: 3px;">
+          Serves 10–12 guests &bull; Flagship &amp; Most Popular Size
         </div>
       </div>
 
       <div class="option-group-title">2. Choose Custard Filling</div>
-      <select id="modal-filling-select" style="width: 100%; padding: 8px; border: 1px solid var(--toast-gray-border); border-radius: var(--radius-sm); font-size: 0.9rem; margin-bottom: 1rem;">
+      <select id="modal-filling-select" class="toast-select-dropdown" style="margin-bottom: 1rem;">
         <option value="Traditional Bavarian Custard">Traditional Bavarian Custard (Original 1936 Classic)</option>
+        <option value="Spiced Pumpkin Custard (Seasonal)">Spiced Pumpkin Custard (Seasonal)</option>
         <option value="Fresh Apricot Jam & Custard">Fresh Apricot Jam & Custard</option>
         <option value="Seedless Raspberry Jam & Custard">Seedless Raspberry Jam & Custard</option>
         <option value="Rich Chocolate Custard">Rich Chocolate Custard</option>
@@ -1211,10 +1176,39 @@
       saveCart();
     }
 
-    function openCustomizeModal(name, price, img, desc, initialSize) {
-      currentItemTitle = name;
-      currentItemBasePrice = price;
-      currentItemImg = img;
+    function onSizeSelectChange(selectEl) {
+      if (!selectEl) return;
+      const opt = selectEl.options[selectEl.selectedIndex];
+      if (!opt) return;
+
+      currentSelectedSize = opt.value;
+      currentSelectedPrice = parseFloat(opt.getAttribute('data-price')) || 39.50;
+      const serves = opt.getAttribute('data-serves') || '';
+
+      document.getElementById('modal-price-display').innerText = `$${currentSelectedPrice.toFixed(2)}`;
+      
+      const calloutName = document.getElementById('callout-size-name');
+      const calloutPrice = document.getElementById('callout-size-price');
+      const calloutServes = document.getElementById('callout-size-serves');
+      if (calloutName) calloutName.innerText = `${currentSelectedSize} Cake`;
+      if (calloutPrice) calloutPrice.innerText = `$${currentSelectedPrice.toFixed(2)}`;
+      if (calloutServes) calloutServes.innerHTML = serves;
+
+      // Update image dynamically if sheet cake
+      const imgEl = document.getElementById('modal-item-img');
+      if (imgEl && !currentItemTitle.includes('Pumpkin')) {
+        if (currentSelectedSize.includes('Sheet')) {
+          imgEl.src = '/assets/images/gallery-13.png';
+        } else {
+          imgEl.src = '/assets/images/gallery-12.jpg';
+        }
+      }
+    }
+
+    function openCustomizeModal(name, price, img, desc, initialSize, initialFilling) {
+      currentItemTitle = name || 'Burnt Almond Cake';
+      currentItemBasePrice = price || 39.50;
+      currentItemImg = img || '/assets/images/gallery-12.jpg';
 
       let targetSize = initialSize;
       if (!targetSize) {
@@ -1226,28 +1220,33 @@
         else targetSize = '8" Round';
       }
 
-      currentSelectedSize = targetSize;
-      currentSelectedPrice = price || 39.50;
-
-      const sizeRows = document.querySelectorAll('#modal-size-options .option-choice-row');
-      sizeRows.forEach(r => {
-        r.classList.remove('selected');
-        const text = r.textContent || '';
-        if (
-          (targetSize.includes('7"') && text.includes('7"')) ||
-          (targetSize.includes('8"') && text.includes('8"')) ||
-          (targetSize.includes('10"') && text.includes('10"')) ||
-          (targetSize.includes('Half Sheet') && text.includes('Half Sheet')) ||
-          (targetSize.includes('Full Sheet') && text.includes('Full Sheet'))
-        ) {
-          r.classList.add('selected');
-        }
-      });
-
       document.getElementById('modal-item-title').innerText = name;
       document.getElementById('modal-item-desc').innerText = desc;
       document.getElementById('modal-item-img').src = img;
-      document.getElementById('modal-price-display').innerText = `$${currentSelectedPrice.toFixed(2)}`;
+
+      const sizeSelect = document.getElementById('modal-size-select');
+      if (sizeSelect) {
+        for (let i = 0; i < sizeSelect.options.length; i++) {
+          const val = sizeSelect.options[i].value;
+          if (val === targetSize || targetSize.includes(val) || val.includes(targetSize)) {
+            sizeSelect.selectedIndex = i;
+            break;
+          }
+        }
+        onSizeSelectChange(sizeSelect);
+      }
+
+      const fillingSelect = document.getElementById('modal-filling-select');
+      if (fillingSelect) {
+        if (initialFilling) {
+          fillingSelect.value = initialFilling;
+        } else if (name.includes('Pumpkin')) {
+          fillingSelect.value = 'Spiced Pumpkin Custard (Seasonal)';
+        } else {
+          fillingSelect.value = 'Traditional Bavarian Custard';
+        }
+      }
+
       document.getElementById('customize-modal').classList.add('active');
     }
 
@@ -1256,19 +1255,26 @@
     }
 
     function selectModalSize(el, size, price) {
-      document.querySelectorAll('#modal-size-options .option-choice-row').forEach(r => r.classList.remove('selected'));
-      el.classList.add('selected');
-      currentSelectedSize = size;
-      currentSelectedPrice = price;
-      document.getElementById('modal-price-display').innerText = `$${price.toFixed(2)}`;
+      const sizeSelect = document.getElementById('modal-size-select');
+      if (sizeSelect) {
+        for (let i = 0; i < sizeSelect.options.length; i++) {
+          if (sizeSelect.options[i].value === size) {
+            sizeSelect.selectedIndex = i;
+            break;
+          }
+        }
+        onSizeSelectChange(sizeSelect);
+      }
     }
 
     function confirmCustomizeAdd() {
       const filling = document.getElementById('modal-filling-select').value;
       const inscription = document.getElementById('modal-inscription-input').value.trim();
-      const details = `Size: ${currentSelectedSize} | Filling: ${filling}${inscription ? ` | Inscription: "${inscription}"` : ''}`;
+      const servesText = (document.getElementById('callout-size-serves')?.innerText || '').split('•')[0].trim();
+      const details = `Size: ${currentSelectedSize} (${servesText}) | Filling: ${filling}${inscription ? ` | Inscription: "${inscription}"` : ''}`;
 
-      addDirectItem(`Burnt Almond Cake (${currentSelectedSize})`, currentSelectedPrice, currentItemImg, details);
+      addDirectItem(`${currentItemTitle} (${currentSelectedSize})`, currentSelectedPrice, currentItemImg, details);
+      document.getElementById('modal-inscription-input').value = '';
       closeCustomizeModal();
     }
 
