@@ -445,6 +445,15 @@ async function initiateStripeCheckout() {
     `;
   }
 
+  let rewardsEmail = '';
+  try {
+    const rawUser = localStorage.getItem('pb_supabase_rewards_user');
+    if (rawUser) {
+      const u = JSON.parse(rawUser);
+      rewardsEmail = u.email || '';
+    }
+  } catch(e) {}
+
   try {
     const res = await fetch('/api/create-checkout-session', {
       method: 'POST',
@@ -456,6 +465,7 @@ async function initiateStripeCheckout() {
         pickupDate,
         pickupTime,
         customerNotes,
+        customerEmail: rewardsEmail,
       }),
     });
 

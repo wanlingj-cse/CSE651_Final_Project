@@ -249,6 +249,10 @@
             <span>Subtotal:</span>
             <span id="receipt-subtotal">$0.00</span>
           </div>
+          <div class="summary-row" id="receipt-discount-row" style="display: none; color: #2e7d32; font-weight: 600;">
+            <span>⭐ Rewards Redeemed:</span>
+            <span id="receipt-discount">-$0.00</span>
+          </div>
           <div class="summary-row">
             <span>Sales Tax (Stripe Tax):</span>
             <span id="receipt-tax">$0.00</span>
@@ -355,9 +359,15 @@
         // Amounts
         const subtotal = (data.amount_subtotal || data.amount_total) / 100;
         const tax = (data.total_details?.amount_tax || 0) / 100;
+        const discount = (data.total_details?.amount_discount || (data.metadata?.rewardCreditRedeemed ? Math.round(Number(data.metadata.rewardCreditRedeemed) * 100) : 0)) / 100;
         const total = (data.amount_total || 0) / 100;
 
         document.getElementById('receipt-subtotal').innerText = '$' + subtotal.toFixed(2);
+        if (discount > 0) {
+          const discountRow = document.getElementById('receipt-discount-row');
+          if (discountRow) discountRow.style.display = 'flex';
+          document.getElementById('receipt-discount').innerText = '-$' + discount.toFixed(2);
+        }
         document.getElementById('receipt-tax').innerText = '$' + tax.toFixed(2);
         document.getElementById('receipt-total').innerText = '$' + total.toFixed(2);
 

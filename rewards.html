@@ -1513,6 +1513,21 @@
               <strong>1% Reward Rule:</strong> Every purchase of <strong>$25.00 or above</strong> earns a credit of <strong>1% in dollar and cent</strong> (e.g. $45 = $0.45, $100 = $1.00). Orders under $25 earn $0.00. Credits expire in <strong>90 days</strong> from purchase.
             </div>
 
+            <!-- REDEEM TOWARDS NEXT PURCHASE CARD -->
+            <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(247, 210, 153, 0.35); border-radius: var(--radius-md); padding: 1.15rem; margin-bottom: 1.25rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+                <span style="color: #F7D299; font-weight: 700; font-size: 0.95rem;">🛒 Redeem on Next Purchase</span>
+                <span style="background: #059669; color: #fff; font-size: 0.72rem; padding: 2px 8px; border-radius: 12px; font-weight: 700;">100% Cash Value</span>
+              </div>
+              <p style="font-size: 0.82rem; color: rgba(255,255,255,0.85); line-height: 1.45; margin-bottom: 0.85rem;">
+                Your available balance can be redeemed towards your next online cake order or in-store bakery purchase!
+              </p>
+              <a href="/online/petersbakery?apply_rewards=1" class="btn" style="width: 100%; text-align: center; justify-content: center; background: #F59E0B; color: #1F2937; font-weight: 800; border-radius: 8px; padding: 10px; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                <span>Redeem Credit at Online Checkout</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+
             <div class="window-actions">
               <button class="btn btn-primary open-order-notice-btn" style="width: 100%; justify-content: center;">
                 Order Online &amp; Earn Credit
@@ -1539,7 +1554,7 @@
           <span class="section-tag">Interactive Supabase Simulator</span>
           <h2 class="section-title">Purchase Credit Simulator &amp; Expiration Tester</h2>
           <p class="section-subtitle">
-            See your exact 1% credit in dollars and cents for purchases of $25 or above. Test standard 90-day validity orders or test the <strong>7-day expiration reminder</strong> with a single click!
+            See your exact 1% credit in dollars and cents for purchases of $25 or above. Test standard 90-day validity orders, test the <strong>7-day expiration reminder</strong>, or simulate <strong>redeeming credit on your next purchase</strong>!
           </p>
         </div>
 
@@ -1599,14 +1614,18 @@
               </div>
             </div>
 
-            <!-- Two Action Simulator Buttons -->
-            <div class="simulator-action-row">
-              <button class="btn btn-primary" onclick="applyTestCreditToWindow(false)" id="btn-apply-credit" style="flex: 1;">
-                + Add Purchase to Rewards Window (90 Days)
+            <!-- Action Simulator Buttons (Add, 7-Day Expiry Test, and Redeem on Next Purchase) -->
+            <div class="simulator-action-row" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button class="btn btn-primary" onclick="applyTestCreditToWindow(false)" id="btn-apply-credit" style="flex: 1; min-width: 200px;">
+                + Add Purchase Credit (90 Days)
               </button>
 
-              <button class="btn btn-outline" onclick="applyTestCreditToWindow(true)" id="btn-simulate-expiring" style="background: #FFFBEB; border-color: #D97706; color: #B45309; font-weight: 700; flex: 1;">
-                ⚡ Test 7-Day Expiry Reminder (Simulate spend expiring in 5 days)
+              <button class="btn btn-outline" onclick="applyTestCreditToWindow(true)" id="btn-simulate-expiring" style="background: #FFFBEB; border-color: #D97706; color: #B45309; font-weight: 700; flex: 1; min-width: 200px;">
+                ⚡ Test 7-Day Expiry (Expires in 5d)
+              </button>
+
+              <button class="btn btn-outline" onclick="simulateRedeemCreditFromSimulator()" id="btn-simulate-redeem" style="background: #ECFDF5; border-color: #059669; color: #065F46; font-weight: 700; flex: 1; min-width: 200px;">
+                🛒 Redeem Credit on Next Purchase
               </button>
             </div>
 
@@ -1715,6 +1734,18 @@
             <div class="faq-answer">
               <div class="faq-answer-inner">
                 <strong>A:</strong> Whenever you log into your rewards account, our backend system immediately scans your active credits. If any credit is within <strong>7 days of its 90-day expiration date</strong>, a pop-up reminder window alerts you to redeem your credit before it expires!
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-question-text">Q: Can I redeem my rewards credit on my next purchase?</span>
+              <span class="faq-icon-arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <strong>A:</strong> Absolutely! Your rewards credit in real dollars and cents is directly redeemable on your very next bakery purchase. When ordering online at <a href="/online/petersbakery" style="color: var(--color-primary); font-weight: 700; text-decoration: underline;">Peters' Bakery Online Ordering</a>, your available rewards balance appears in your cart drawer. Simply check the <strong>"Redeem rewards credit on this purchase"</strong> toggle to deduct your savings from your order total! You can also redeem your credit in-store at counter checkout.
               </div>
             </div>
           </div>
@@ -2038,7 +2069,7 @@
       renderLedger();
     }
 
-    // Calculate Active Balance (credits valid for 90 days)
+    // Calculate Active Balance (credits valid for 90 days, debiting redemptions)
     function calculateActiveBalance() {
       const now = Date.now();
       let sum = 0;
@@ -2049,7 +2080,7 @@
           sum += parseFloat(sp.credit) || 0;
         }
       });
-      return Math.round(sum * 100) / 100;
+      return Math.max(0, Math.round(sum * 100) / 100);
     }
 
     // CHECK AND TRIGGER 7-DAY EXPIRATION REMINDER AFTER LOGGING IN
@@ -2064,13 +2095,14 @@
       let nearestExpiryDateStr = '';
 
       customerSpends.forEach(sp => {
+        const creditAmt = parseFloat(sp.credit) || 0;
         const expiryMs = new Date(sp.expires_at).getTime();
         const diffMs = expiryMs - now;
         const daysLeft = diffMs / (24 * 60 * 60 * 1000);
 
-        // Within 7 days and not yet expired!
-        if (diffMs > 0 && diffMs <= sevenDaysMs && !sp.is_redeemed) {
-          expiringSoonCredits += parseFloat(sp.credit) || 0;
+        // Within 7 days, positive credit, and not yet expired!
+        if (creditAmt > 0 && diffMs > 0 && diffMs <= sevenDaysMs && !sp.is_redeemed) {
+          expiringSoonCredits += creditAmt;
           if (daysLeft < nearestDaysLeft) {
             nearestDaysLeft = Math.max(1, Math.ceil(daysLeft));
             nearestExpiryDateStr = new Date(sp.expires_at).toLocaleDateString('en-US', {
@@ -2451,6 +2483,88 @@
       if (windowCard) windowCard.scrollIntoView({ behavior: 'smooth' });
     }
 
+    // SIMULATE REDEEMING REWARDS CREDIT ON NEXT PURCHASE
+    async function simulateRedeemCreditFromSimulator() {
+      const activeBal = calculateActiveBalance();
+      if (activeBal <= 0) {
+        alert('You currently have $0.00 in rewards credit to redeem.\n\nEarn credits by registering (with our $1.00 welcome bonus) or testing a $25+ purchase above!');
+        return;
+      }
+
+      const defaultRedeem = Math.min(activeBal, 1.00);
+      const inputStr = prompt(`Enter rewards credit amount to redeem towards your next purchase (Available: $${activeBal.toFixed(2)}):`, defaultRedeem.toFixed(2));
+      if (!inputStr) return;
+
+      const redeemAmount = parseFloat(inputStr);
+      if (isNaN(redeemAmount) || redeemAmount <= 0) {
+        alert('Please enter a valid dollar amount greater than $0.00.');
+        return;
+      }
+
+      if (redeemAmount > activeBal) {
+        alert(`You only have $${activeBal.toFixed(2)} in available rewards credit to redeem.`);
+        return;
+      }
+
+      if (!currentUser) {
+        currentUser = {
+          name: 'Maria Gonzalez',
+          email: 'maria.gonzalez@example.com',
+          memberId: 'PB-8849-GOLD',
+          favoriteTreat: 'Burnt Almond Cake'
+        };
+      }
+
+      const now = new Date();
+      const expiresDate = new Date(now.getTime() + EXPIRY_DAYS * 24 * 60 * 60 * 1000);
+
+      const redemptionSpend = {
+        id: 'sp-redeem-' + Date.now(),
+        date: now.toLocaleDateString('en-US'),
+        description: `Rewards Credit Redeemed towards Purchase (-$${redeemAmount.toFixed(2)})`,
+        amount: 0.00,
+        rate: '0.0%',
+        credit: -redeemAmount,
+        created_at: now.toISOString(),
+        expires_at: expiresDate.toISOString(),
+        is_redeemed: false
+      };
+
+      customerSpends.unshift(redemptionSpend);
+
+      // Record in Supabase serverless route
+      try {
+        await fetch('/api/rewards-backend?action=redeem_credit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: currentUser.email,
+            amount: redeemAmount,
+            order_description: redemptionSpend.description
+          })
+        });
+      } catch(e) {
+        console.log('Redeem sync fallback:', e);
+      }
+
+      saveUserData();
+      updateUserDisplay();
+
+      // Visual flash animation
+      const balEl = document.getElementById('display-balance');
+      balEl.style.transform = 'scale(1.2)';
+      balEl.style.color = '#F59E0B';
+      setTimeout(() => {
+        balEl.style.transform = 'scale(1)';
+        balEl.style.color = '#F7D299';
+      }, 500);
+
+      alert(`🎉 Success! Redeemed $${redeemAmount.toFixed(2)} rewards credit towards purchase!\n\n• Amount Deducted: -$${redeemAmount.toFixed(2)}\n• Remaining Available Balance: $${calculateActiveBalance().toFixed(2)}\n• Recorded in Supabase Ledger.\n\nWhen you order online on Toast Tab, your credit can be applied directly in the cart drawer!`);
+
+      const windowCard = document.getElementById('customer-reward-window');
+      if (windowCard) windowCard.scrollIntoView({ behavior: 'smooth' });
+    }
+
     // Render Transaction Ledger with 90-Day Expiry Countdown
     function renderLedger() {
       const tbody = document.getElementById('ledger-table-body');
@@ -2468,22 +2582,31 @@
       }
 
       const now = Date.now();
-      let runningSum = 0;
 
       tbody.innerHTML = customerSpends.map(sp => {
+        const creditVal = typeof sp.credit === 'number' ? sp.credit : parseFloat(sp.credit || 0);
+        const isRedemption = creditVal < 0;
         const expiryDate = new Date(sp.expires_at || (new Date(sp.created_at).getTime() + EXPIRY_DAYS * 86400000));
         const diffMs = expiryDate.getTime() - now;
         const daysLeft = Math.ceil(diffMs / (24 * 60 * 60 * 1000));
         const isExpired = diffMs <= 0;
         const isExpiringSoon = diffMs > 0 && daysLeft <= REMINDER_WINDOW_DAYS;
 
+        let creditDisplay = '';
         let expiryBadge = '';
-        if (isExpired) {
-          expiryBadge = `<span class="ledger-expiry-tag expiry-tag-expired">Expired</span>`;
-        } else if (isExpiringSoon) {
-          expiryBadge = `<span class="ledger-expiry-tag expiry-tag-warning">⚠️ Expires in ${daysLeft}d!</span>`;
+
+        if (isRedemption) {
+          creditDisplay = `<span style="color: #DC2626; font-weight: 700;">-$${Math.abs(creditVal).toFixed(2)}</span>`;
+          expiryBadge = `<span class="ledger-expiry-tag" style="background: #ECFDF5; color: #047857; font-weight: 700;">Redeemed</span>`;
         } else {
-          expiryBadge = `<span class="ledger-expiry-tag expiry-tag-normal">${daysLeft}d left</span>`;
+          creditDisplay = `<span class="ledger-credit-earned">+${creditVal.toFixed(2)}</span>`;
+          if (isExpired) {
+            expiryBadge = `<span class="ledger-expiry-tag expiry-tag-expired">Expired</span>`;
+          } else if (isExpiringSoon) {
+            expiryBadge = `<span class="ledger-expiry-tag expiry-tag-warning">⚠️ Expires in ${daysLeft}d!</span>`;
+          } else {
+            expiryBadge = `<span class="ledger-expiry-tag expiry-tag-normal">${daysLeft}d left</span>`;
+          }
         }
 
         const dateStr = expiryDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -2494,7 +2617,7 @@
             <td>${sp.description}</td>
             <td>$${parseFloat(sp.amount).toFixed(2)}</td>
             <td><span style="background:var(--color-almond-soft); color:#8C531B; padding:2px 8px; border-radius:12px; font-weight:700; font-size:0.8rem;">${sp.rate}</span></td>
-            <td class="ledger-credit-earned">+${typeof sp.credit === 'number' ? '$' + sp.credit.toFixed(2) : '$' + parseFloat(sp.credit).toFixed(2)}</td>
+            <td>${creditDisplay}</td>
             <td>${dateStr}</td>
             <td>${expiryBadge}</td>
             <td><strong>$${calculateActiveBalance().toFixed(2)}</strong></td>

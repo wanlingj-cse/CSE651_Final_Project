@@ -65,6 +65,9 @@ export default async function handler(req, res) {
       (i) => i.isDigital || (i.name && i.name.toLowerCase().includes('gift card'))
     );
 
+    const rewardCreditRedeemedNum = parseFloat(req.body.rewardCreditRedeemed) || 0;
+    const customerEmail = (req.body.customerEmail || '').trim();
+
     // Create Checkout Session following Stripe Best Practices
     const sessionConfig = {
       mode: 'payment',
@@ -90,6 +93,31 @@ export default async function handler(req, res) {
         : `${origin}/orders.html#cart`,
     };
 
+    if (customerEmail) {
+      sessionConfig.customer_email = customerEmail;
+      sessionConfig.metadata.customerEmail = customerEmail;
+    }
+
+    // Apply Peters' Bakery Rewards Credit redemption as a Stripe discount
+    if (rewardCreditRedeemedNum > 0) {
+      const subtotalCents = line_items.reduce((sum, item) => sum + (item.price_data.unit_amount * item.quantity), 0);
+      const discountCents = Math.min(Math.round(rewardCreditRedeemedNum * 100), subtotalCents);
+      if (discountCents > 0) {
+        try {
+          const coupon = await stripe.coupons.create({
+            amount_off: discountCents,
+            currency: 'usd',
+            duration: 'once',
+            name: `Peters' Bakery Rewards Credit (-$${(discountCents / 100).toFixed(2)})`,
+          });
+          sessionConfig.discounts = [{ coupon: coupon.id }];
+          sessionConfig.metadata.rewardCreditRedeemed = (discountCents / 100).toFixed(2);
+        } catch (couponErr) {
+          console.warn('Could not create Stripe coupon, continuing without coupon:', couponErr);
+        }
+      }
+    }
+
     if (!isDigitalOnly) {
       sessionConfig.shipping_address_collection = {
         allowed_countries: ['US'],
@@ -97,6 +125,7 @@ export default async function handler(req, res) {
     }
 
     const session = await stripe.checkout.sessions.create(sessionConfig);
+
 
     return res.status(200).json({
       id: session.id,

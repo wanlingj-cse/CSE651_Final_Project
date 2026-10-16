@@ -138,7 +138,73 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- 6. ROW LEVEL SECURITY (RLS) POLICIES
+-- 6. FUNCTION TO REDEEM REWARDS CREDIT TOWARDS NEXT PURCHASE
+CREATE OR REPLACE FUNCTION redeem_customer_credit(
+  p_email VARCHAR(255),
+  p_amount NUMERIC(10, 2),
+  p_order_id TEXT DEFAULT NULL
+)
+RETURNS JSON AS $$
+DECLARE
+  v_cust_id UUID;
+  v_current_bal NUMERIC(10, 2) := 0.00;
+  v_spend_id UUID;
+  v_desc TEXT;
+  v_redeem_amt NUMERIC(10, 2);
+BEGIN
+  SELECT id INTO v_cust_id FROM customers WHERE LOWER(email) = LOWER(p_email);
+
+  -- Calculate current active, unexpired, unredeemed balance
+  SELECT COALESCE(SUM(credit_earned), 0.00) INTO v_current_bal
+  FROM customer_spends
+  WHERE LOWER(customer_email) = LOWER(p_email)
+    AND is_redeemed = FALSE
+    AND expires_at > NOW();
+
+  IF v_current_bal <= 0 THEN
+    RETURN json_build_object('success', false, 'error', 'No active rewards credit available to redeem');
+  END IF;
+
+  v_redeem_amt := LEAST(p_amount, v_current_bal);
+
+  v_desc := 'Rewards Credit Redeemed towards Purchase';
+  IF p_order_id IS NOT NULL AND p_order_id <> '' THEN
+    v_desc := v_desc || ' (' || p_order_id || ')';
+  END IF;
+
+  -- Insert debit record into customer_spends
+  INSERT INTO customer_spends (
+    customer_id,
+    customer_email,
+    order_description,
+    spend_amount,
+    credit_rate,
+    credit_earned,
+    created_at,
+    expires_at,
+    is_redeemed
+  ) VALUES (
+    v_cust_id,
+    LOWER(p_email),
+    v_desc,
+    0.00,
+    0.00,
+    -v_redeem_amt,
+    NOW(),
+    NOW() + INTERVAL '90 days',
+    FALSE
+  ) RETURNING id INTO v_spend_id;
+
+  RETURN json_build_object(
+    'success', true,
+    'spend_id', v_spend_id,
+    'amount_redeemed', v_redeem_amt,
+    'remaining_balance', ROUND(v_current_bal - v_redeem_amt, 2)
+  );
+END;
+$$ LANGUAGE plpgsql;
+
+-- 7. ROW LEVEL SECURITY (RLS) POLICIES
 ALTER TABLE customers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE customer_spends ENABLE ROW LEVEL SECURITY;
 
@@ -154,3 +220,4 @@ ON customer_spends FOR ALL
 TO anon, authenticated
 USING (true)
 WITH CHECK (true);
+

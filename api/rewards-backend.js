@@ -182,7 +182,9 @@ export default async function handler(req, res) {
           const isExpired = diffMs <= 0;
           const credit = Number(sp.credit_earned) || 0;
 
-          lifetimeEarned += credit;
+          if (credit > 0) {
+            lifetimeEarned += credit;
+          }
           if (Number(sp.spend_amount) >= 25.00) {
             qualifyingOrdersCount++;
           }
@@ -190,8 +192,8 @@ export default async function handler(req, res) {
           if (!isExpired && !sp.is_redeemed) {
             activeBalance += credit;
 
-            // Check if expiring in 7 days or less!
-            if (diffMs > 0 && diffMs <= sevenDaysMs) {
+            // Check if positive credit expiring in 7 days or less!
+            if (credit > 0 && diffMs > 0 && diffMs <= sevenDaysMs) {
               expiringSoonCredits += credit;
               if (daysLeft < nearestExpiryDays) {
                 nearestExpiryDays = daysLeft;
@@ -208,7 +210,7 @@ export default async function handler(req, res) {
             ...sp,
             days_left: daysLeft,
             is_expired: isExpired,
-            is_expiring_soon: diffMs > 0 && diffMs <= sevenDaysMs
+            is_expiring_soon: diffMs > 0 && diffMs <= sevenDaysMs && credit > 0
           };
         });
 
@@ -224,6 +226,8 @@ export default async function handler(req, res) {
           };
         }
 
+        const safeBalance = Math.max(0, Math.round(activeBalance * 100) / 100);
+
         return res.status(200).json({
           success: true,
           customer: {
@@ -233,7 +237,7 @@ export default async function handler(req, res) {
             favorite_treat: customer.favorite_treat
           },
           rewards: {
-            balance: Math.round(activeBalance * 100) / 100,
+            balance: safeBalance,
             qualifying_orders: qualifyingOrdersCount,
             lifetime_credit: Math.round(lifetimeEarned * 100) / 100,
             credits_expire_days: 90
@@ -297,7 +301,108 @@ export default async function handler(req, res) {
         });
       }
 
-      // 4. SUPABASE STATUS CHECK
+      // 4. REDEEM REWARDS CREDIT TOWARDS PURCHASE
+      case 'redeem_credit': {
+        if (req.method !== 'POST') return res.status(405).json({ error: 'POST required' });
+        const { email, amount, order_id, order_description } = req.body || {};
+
+        if (!email || amount === undefined) {
+          return res.status(400).json({ error: 'Email and amount are required to redeem credit' });
+        }
+
+        const redeemAmount = Math.max(0, parseFloat(amount) || 0.00);
+        if (redeemAmount <= 0) {
+          return res.status(400).json({ error: 'Redemption amount must be greater than $0.00' });
+        }
+
+        const normalizedEmail = email.toLowerCase().trim();
+        const now = new Date();
+        const expiresAt = new Date(now.getTime() + 90 * 24 * 60 * 60 * 1000);
+
+        const desc = order_description || (order_id 
+          ? `Rewards Credit Redeemed on Order #${order_id}`
+          : 'Rewards Credit Redeemed towards Bakery Purchase');
+
+        const redemptionSpend = {
+          customer_email: normalizedEmail,
+          order_description: desc,
+          spend_amount: 0.00,
+          credit_rate: 0.00,
+          credit_earned: -Math.round(redeemAmount * 100) / 100, // Negative credit debits balance
+          created_at: now.toISOString(),
+          expires_at: expiresAt.toISOString(),
+          is_redeemed: false
+        };
+
+        let dbResult = null;
+        if (supabase) {
+          const { data, error } = await supabase
+            .from('customer_spends')
+            .insert([redemptionSpend])
+            .select()
+            .single();
+
+          if (error) {
+            console.error('Supabase redeem_credit error:', error);
+          } else {
+            dbResult = data;
+          }
+        }
+
+        return res.status(200).json({
+          success: true,
+          message: `Successfully redeemed $${redeemAmount.toFixed(2)} rewards credit towards purchase!`,
+          amount_redeemed: redeemAmount,
+          spend: redemptionSpend,
+          backend: supabase ? 'supabase' : 'mock-active'
+        });
+      }
+
+      // 5. GET CUSTOMER BALANCE QUICK LOOKUP (Used by Cart Drawer & Online Checkout)
+      case 'get_balance': {
+        const email = (req.query.email || (req.body && req.body.email) || '').toLowerCase().trim();
+        if (!email) {
+          return res.status(400).json({ error: 'Email required' });
+        }
+
+        let customer = null;
+        let activeBalance = 0.00;
+
+        if (supabase) {
+          const { data: custData } = await supabase
+            .from('customers')
+            .select('member_id, name, email')
+            .eq('email', email)
+            .single();
+
+          if (custData) {
+            customer = custData;
+            const { data: spends } = await supabase
+              .from('customer_spends')
+              .select('credit_earned, expires_at, is_redeemed')
+              .eq('customer_email', email);
+
+            if (spends) {
+              const now = Date.now();
+              for (const s of spends) {
+                const exp = new Date(s.expires_at).getTime();
+                if (exp > now && !s.is_redeemed) {
+                  activeBalance += Number(s.credit_earned) || 0;
+                }
+              }
+            }
+          }
+        }
+
+        return res.status(200).json({
+          success: true,
+          customer: customer,
+          active_balance: Math.max(0, Math.round(activeBalance * 100) / 100),
+          backend: supabase ? 'supabase' : 'mock-active'
+        });
+      }
+
+      // 6. SUPABASE STATUS CHECK
       case 'status': {
         return res.status(200).json({
           status: 'online',
@@ -307,7 +412,9 @@ export default async function handler(req, res) {
             qualifying_threshold: '$25.00',
             credit_percentage: '1.0%',
             credit_expiration_days: 90,
-            reminder_threshold_days: 7
+            reminder_threshold_days: 7,
+            redemption_allowed: true,
+            redemption_terms: 'Customer rewards credit can be redeemed towards the next purchase at online checkout or counter pickup'
           }
         });
       }
@@ -320,3 +427,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 }
+
