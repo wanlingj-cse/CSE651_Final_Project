@@ -2,6 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/menu", "destination": "/online/petersbakery", "permanent": true },
+    { "source": "/menu.html", "destination": "/online/petersbakery", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/online/petersbakery", "destination": "/online/petersbakery.html" },
     { "source": "/order.toasttab.com/online/petersbakery", "destination": "/online/petersbakery.html" },

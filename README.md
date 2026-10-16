@@ -15,7 +15,7 @@ A faithful, high-fidelity clone of **[Peters' Bakery](https://www.petersbakery.c
 2. **Complete Page Architecture**
    - **Home (`index.html`)**: Hero banner, customer welcome card, *"What We Bake"* signature showcase (Strawberry Ring, Burnt Almond Cake, Beehive Coffee Cake), heritage story teaser, *"Come Visit Us"* section with store photography, interactive Google Map embed, and full footer.
    - **About Us & History (`about.html`)**: Complete narrative of founder Tony Peters (1907–1996), Studebaker weekday job & San Francisco weekend apprentice train rides, 1936 founding, 1947 Alum Rock relocation, 1974 armed robbery showdown, Santa Clara County Horsemen's Association presidency, and 3rd generation family continuation. Includes historical photos (`tony-portrait.png`, `tony-horse.jpg`, `bakery-1972.jpg`, `about-mural.jpg`) and an interactive milestone timeline.
-   - **Menu & Specialties (`menu.html`)**: Category filters (Cakes & Tortes, Pastries & Breakfast, Pies & Tarts, Cookies & Bars, Artisan Breads) with pricing and instant *"Add to Box"* buttons.
+   - **Online Ordering & Full Menu (`online/petersbakery.html`)**: Category filters (Burnt Almond Cakes, Specialties & Danish, Pies, Breakfast Pastries, Cookies, Artisan Breads) with instant customization, size selector, and shopping bag checkout.
    - **Photo Gallery (`gallery.html`)**: 15 authentic gallery photos with category tags and a full-screen interactive **Lightbox Viewer** supporting keyboard and arrow navigation.
    - **FAQ (`faq.html`)**: All 14 official Peters' Bakery questions & answers (dietary restrictions, Burnt Almond Cake ingredients, Goldbelly delivery explanation, pre-order lines, wedding cakes, storage tips) featuring animated accordions and a **live search filter**.
    - **Orders & Notice (`orders.html`)**: Official 48-hour advance notice advisory, small lobby guidance, direct link to official Toast Tab, plus an interactive **Custom Burnt Almond Cake Builder** with size selections, custard flavors, and custom chocolate script inscriptions.
@@ -69,11 +69,14 @@ python3 -m http.server 3030
 ```
 ├── index.html            # Homepage
 ├── about.html            # About Us & 88-Year History
-├── menu.html             # What We Bake & Full Menu
 ├── gallery.html          # High-Res Photo Gallery with Lightbox
 ├── faq.html              # Frequently Asked Questions with Live Search
 ├── orders.html           # Online Ordering Notice & Cake Customizer
 ├── refund.html           # Return & Refund Policy
+├── online/               # Toast Tab Online Ordering Cloned Experience
+│   └── petersbakery.html # Full Interactive Bakery Menu & Checkout
+├── egiftcards/           # Toast Tab eGift Card Shop Experience
+│   └── petersbakery.html # Instant Digital Gift Card Purchase
 ├── assets/
 │   ├── css/
 │   │   └── style.css     # Unified Design System & Responsive Styles
