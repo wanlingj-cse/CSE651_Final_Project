@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peters' Bakery Rewards • Earn 1% Back on Orders $25+ | San Jose, CA</title>
+  <meta name="description" content="Join Peters' Bakery Rewards Club! Earn 1% cash credit in dollars and cents on every bakery order of $25 or more. Track your rewards balance and redeem toward your favorite Burnt Almond Cake.">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ==========================================================================
+       REWARDS PAGE CUSTOM STYLES
+       ========================================================================== */
+    
+    /* Top App Construction Banner */
+    .app-construction-banner {
+      background: linear-gradient(135deg, #FFF8E7 0%, #FEECC8 100%);
+      border-bottom: 2px dashed #E0A94F;
+      padding: 0.85rem 1rem;
+      position: relative;
+      z-index: 99;
+    }
+    .construction-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .construction-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #D97706;
+      color: #FFFFFF;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(217, 119, 6, 0.3);
+    }
+    .construction-text {
+      font-size: 0.92rem;
+      color: #78350F;
+      margin: 0;
+      font-weight: 500;
+    }
+    .construction-text strong {
+      color: #451A03;
+    }
+
+    /* Hero Section */
+    .rewards-hero {
+      background: linear-gradient(180deg, #FDFBF8 0%, #F7EFE4 100%);
+      padding: 4.5rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .rewards-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .rewards-hero-content {
+      max-width: 620px;
+    }
+    .rewards-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-caramel-light);
+      color: var(--color-caramel-hover);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(191, 130, 67, 0.25);
+    }
+    .rewards-hero-title {
+      font-family: var(--font-serif);
+      font-size: 3.2rem;
+      line-height: 1.15;
+      color: var(--color-primary);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.5px;
+    }
+    .rewards-hero-title .accent-text {
+      color: var(--color-caramel);
+      font-style: italic;
+    }
+    .rewards-hero-desc {
+      font-size: 1.12rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .rewards-hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .rewards-highlight-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(44, 24, 16, 0.1);
+    }
+    .highlight-mini-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+    .highlight-mini-card .val {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--color-caramel-hover);
+      display: block;
+      line-height: 1.1;
+    }
+    .highlight-mini-card .lbl {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 0.25rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    /* Showcase: Burnt Almond Cake + iPhone Mockup */
+    .showcase-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 520px;
+    }
+
+    /* Cake Card behind/beside iPhone */
+    .cake-feature-card {
+      position: absolute;
+      left: 0;
+      bottom: 20px;
+      width: 270px;
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 0.75rem;
+      box-shadow: 0 20px 40px rgba(44, 24, 16, 0.15);
+      border: 2px solid var(--color-caramel-light);
+      z-index: 1;
+      transform: rotate(-3deg) translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cake-feature-card:hover {
+      transform: rotate(-1deg) translateY(-6px);
+      box-shadow: 0 26px 50px rgba(44, 24, 16, 0.22);
+    }
+    .cake-feature-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+    .cake-feature-body {
+      padding: 0.75rem 0.25rem 0.25rem;
+    }
+    .cake-feature-tag {
+      display: inline-block;
+      background: var(--color-almond-soft);
+      color: #8C531B;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.35rem;
+    }
+    .cake-feature-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      margin: 0 0 0.25rem;
+      font-weight: 700;
+    }
+    .cake-feature-sub {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* Realistic iPhone Mockup */
+    .iphone-device {
+      position: relative;
+      width: 300px;
+      height: 610px;
+      background: #1C1917;
+      border-radius: 52px;
+      padding: 11px;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.45),
+                  0 10px 20px -5px rgba(0, 0, 0, 0.2),
+                  inset 0 0 0 2px #44403C,
+                  inset 0 0 0 4px #1C1917;
+      z-index: 2;
+      margin-left: 110px;
+      transform: rotate(2deg);
+      transition: transform 0.3s ease;
+    }
+    .iphone-device:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .iphone-screen {
+      width: 100%;
+      height: 100%;
+      background: #FAF7F2;
+      border-radius: 42px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-sans);
+    }
+    /* Dynamic Island */
+    .iphone-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96px;
+      height: 24px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+    }
+    .island-camera {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #1A1A2E;
+      border: 1px solid #2A2A4E;
+    }
+    /* Status bar */
+    .iphone-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #1C1917;
+      z-index: 20;
+    }
+    /* Under Construction Ribbon across App */
+    .app-construction-ribbon {
+      position: absolute;
+      top: 36px;
+      right: -35px;
+      background: linear-gradient(90deg, #D97706, #B45309);
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 38px;
+      transform: rotate(45deg);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      z-index: 25;
+      text-align: center;
+      pointer-events: none;
+    }
+    /* App Interior */
+    .app-inner-content {
+      padding: 0.75rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .app-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 4px;
+    }
+    .app-logo-mini {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+    }
+    .app-brand-name {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+    }
+    /* In-App VIP Card */
+    .app-vip-card {
+      background: linear-gradient(135deg, #2C1810 0%, #4A3326 100%);
+      border-radius: 16px;
+      padding: 1rem;
+      color: #FFFFFF;
+      box-shadow: 0 10px 20px rgba(44, 24, 16, 0.25);
+      border: 1px solid rgba(215, 166, 103, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .app-vip-card::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(215, 166, 103, 0.35) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .app-vip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(215, 166, 103, 0.25);
+      color: #F9EEDD;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .app-reward-val {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #F5D398;
+      margin: 0.4rem 0 0.1rem;
+      line-height: 1;
+    }
+    .app-reward-lbl {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .app-vip-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 0.75rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    /* In-App Quick Barcode */
+    .app-barcode-box {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 0.65rem;
+      text-align: center;
+      border: 1px solid var(--color-border);
+    }
+    .app-barcode-lines {
+      height: 28px;
+      background: repeating-linear-gradient(90deg, #1C1917 0px, #1C1917 2px, transparent 2px, transparent 4px, #1C1917 4px, #1C1917 7px, transparent 7px, transparent 9px, #1C1917 9px, #1C1917 11px);
+      margin: 0 auto 4px;
+      border-radius: 2px;
+      width: 90%;
+    }
+    .app-barcode-num {
+      font-size: 0.68rem;
+      font-family: monospace;
+      color: var(--color-text-muted);
+      letter-spacing: 1px;
+    }
+    /* In-App Perk Item */
+    .app-perk-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #FFFFFF;
+      padding: 0.6rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+    }
+    .app-perk-icon {
+      font-size: 1.25rem;
+    }
+    .app-perk-title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0;
+    }
+    .app-perk-sub {
+      font-size: 0.68rem;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* 3-Step How It Works Section */
+    .rewards-steps-section {
+      padding: 5rem 0;
+      background: #FFFFFF;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+    .step-card {
+      background: var(--color-bg);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      border: 1px solid var(--color-border);
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-align: center;
+    }
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-almond);
+    }
+    .step-number-badge {
+      width: 48px;
+      height: 48px;
+      background: var(--color-caramel);
+      color: #FFFFFF;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 12px rgba(191, 130, 67, 0.35);
+    }
+    .step-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
+    .step-card-desc {
+      font-size: 0.98rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* Main Rewards Interactive Section */
+    .rewards-account-section {
+      padding: 5.5rem 0;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+    }
+    .rewards-account-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Registration & Account Card */
+    .account-auth-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+    }
+    .auth-tab-buttons {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--color-bg-warm);
+      padding: 0.35rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 2rem;
+    }
+    .auth-tab-btn {
+      flex: 1;
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .auth-tab-btn.active {
+      background: #FFFFFF;
+      color: var(--color-primary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Form Styles */
+    .auth-form-group {
+      margin-bottom: 1.25rem;
+    }
+    .auth-form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.4rem;
+    }
+    .auth-form-input, .auth-form-select {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--color-border);
+      background: var(--color-surface);
+      font-size: 0.96rem;
+      color: var(--color-text-main);
+      font-family: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .auth-form-input:focus, .auth-form-select:focus {
+      outline: none;
+      border-color: var(--color-caramel);
+      box-shadow: 0 0 0 3px rgba(191, 130, 67, 0.15);
+      background: #FFFFFF;
+    }
+    .password-wrapper {
+      position: relative;
+    }
+    .password-toggle-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--color-text-light);
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 4px;
+    }
+
+    /* Customer Rewards Window Card */
+    .customer-reward-window {
+      background: linear-gradient(135deg, #2C1810 0%, #3F2418 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-xl);
+      border: 2px solid var(--color-almond);
+      position: sticky;
+      top: 100px;
+    }
+    .window-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1.5rem;
+    }
+    .window-member-name {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin: 0 0 0.25rem;
+      color: #FFFFFF;
+    }
+    .window-member-id {
+      font-size: 0.82rem;
+      color: var(--color-almond);
+      font-family: monospace;
+      letter-spacing: 1px;
+    }
+    .window-tier-badge {
+      background: var(--color-caramel);
+      color: #FFFFFF;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .window-balance-display {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      text-align: center;
+      border: 1px solid rgba(215, 166, 103, 0.3);
+      margin-bottom: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .balance-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .balance-amount {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #F7D299;
+      line-height: 1;
+      display: inline-block;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .balance-cents-note {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 0.5rem;
+    }
+    .window-stats-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .window-stat-box {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .window-stat-box .val {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: block;
+    }
+    .window-stat-box .lbl {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    .window-rule-callout {
+      background: rgba(217, 119, 6, 0.2);
+      border-left: 3px solid #D97706;
+      padding: 0.75rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.86rem;
+      color: #FEEBC8;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .window-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* Calculator Section */
+    .calculator-section {
+      padding: 5.5rem 0;
+      background: #FFFFFF;
+    }
+    .calc-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--color-bg);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+    }
+    .calc-presets {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .calc-preset-btn {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 0.45rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .calc-preset-btn:hover {
+      border-color: var(--color-caramel);
+      color: var(--color-caramel-hover);
+      background: var(--color-caramel-light);
+    }
+    .calc-input-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .calc-input-wrapper {
+      position: relative;
+      flex: 1;
+    }
+    .calc-dollar-sign {
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-caramel);
+    }
+    .calc-input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 2.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--color-border);
+      font-family: var(--font-serif);
+      color: var(--color-primary);
+      background: #FFFFFF;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .calc-input:focus {
+      border-color: var(--color-caramel);
+      box-shadow: 0 0 0 3px rgba(191, 130, 67, 0.15);
+    }
+    .calc-result-box {
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+    }
+    .calc-result-box.qualified {
+      background: #ECFDF5;
+      border: 2px solid #10B981;
+    }
+    .calc-result-box.unqualified {
+      background: #FFFBEB;
+      border: 2px solid #F59E0B;
+    }
+    .calc-grid-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      text-align: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    }
+    .calc-grid-item .lbl {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .calc-grid-item .val {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    /* Ledger Table */
+    .ledger-section {
+      padding: 4.5rem 0 5rem;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+    }
+    .ledger-table-wrap {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+      margin-top: 2rem;
+    }
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+    .ledger-table th {
+      background: var(--color-bg-warm);
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .ledger-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-border-light);
+      color: var(--color-text-main);
+    }
+    .ledger-credit-earned {
+      color: #059669;
+      font-weight: 700;
+    }
+
+    /* FAQ Section */
+    .rewards-faq-section {
+      padding: 5rem 0 6rem;
+      background: #FFFFFF;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+      .rewards-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .rewards-account-grid {
+        grid-template-columns: 1fr;
+      }
+      .customer-reward-window {
+        position: static;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .showcase-container {
+        min-height: auto;
+        padding-top: 1rem;
+      }
+      .iphone-device {
+        margin-left: 0;
+      }
+      .cake-feature-card {
+        display: none; /* Hide floating card on small tablet/mobile so iPhone is centered */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top App Under Construction Banner -->
+  <aside class="app-construction-banner" aria-label="Mobile App Status">
+    <div class="construction-inner">
+      <div class="construction-pill">
+        <span class="construction-icon">🚧</span>
+        <span>Notice</span>
+      </div>
+      <p class="construction-text">
+        <strong>Mobile App Currently Under Construction:</strong> Our iOS &amp; Android app is in development. In the meantime, register below to earn and track your <strong>1% rewards credit on orders of $25 or more</strong>!
+      </p>
+    </div>
+  </aside>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Announcement">
+    <div class="container">
+      <div class="announcement-left">
+        <div class="announcement-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Tue – Sat: 6:30 AM – 6:00 PM</span>
+        </div>
+        <div class="announcement-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <a href="tel:+14082583529">(408) 258-3529</a>
+        </div>
+        <div id="live-status-badge" class="status-badge">
+          <span class="status-indicator"></span> Checking hours...
+        </div>
+      </div>
+      <div class="announcement-right">
+        <a href="https://www.yelp.ca/biz/peters-bakery-san-jose-2" target="_blank" rel="noopener" class="social-link" title="Yelp" aria-label="Yelp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5v-2.1l1.9 1.9c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4L14.4 13h2.1c.6 0 1-.4 1-1s-.4-1-1-1h-2.1l1.9-1.9c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L13 9.6V7.5c0-.6-.4-1-1-1s-1 .4-1 1v2.1l-1.9-1.9c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l1.9 1.9H7.5c-.6 0-1 .4-1 1s.4 1 1 1h2.1l-1.9 1.9c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0l1.9-1.9v2.1c0 .6.4 1 1 1s1-.4 1-1z"/></svg></a>
+        <a href="https://fb.com/petersbakery" target="_blank" rel="noopener" class="social-link" title="Facebook" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/peters.bakery/" target="_blank" rel="noopener" class="social-link" title="Instagram" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="SITE_HEADER">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/images/logo.png" alt="Peters' Bakery" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-name">Peters' Bakery</span>
+          <span class="brand-tagline">Since 1936</span>
+          <span class="brand-motto">"If you don't want to eat it yourself, don't sell it."</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="rewards.html" class="nav-link active">Rewards</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="refund.html" class="nav-link">Return/Refund</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button class="btn btn-primary btn-sm open-order-notice-btn" id="header-order-online-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          Order Online
+        </button>
+
+        <a href="/egiftcards/petersbakery" class="btn btn-outline btn-sm">
+          Buy Gift Card
+        </a>
+
+        <!-- Cart Trigger Button -->
+        <button class="cart-btn cart-toggle-btn" id="cart-toggle-btn" aria-label="View Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge" style="display:none;">0</span>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="mobile-menu-btn" aria-label="Open Mobile Navigation">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-backdrop"></div>
+    <div class="mobile-nav-panel">
+      <button class="mobile-nav-close" aria-label="Close navigation">&times;</button>
+      <div style="margin-bottom: 2rem;">
+        <img src="assets/images/logo.png" alt="Peters' Bakery" style="width: 60px;">
+        <h3 style="font-size: 1.25rem; margin-top: 8px;">Peters' Bakery</h3>
+        <p style="font-size: 0.8rem; color: var(--color-caramel);">Est. 1936 &bull; San Jose, CA</p>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="rewards.html" class="mobile-nav-link active">Rewards</a>
+        <a href="gallery.html" class="mobile-nav-link">Photo Gallery</a>
+        <a href="faq.html" class="mobile-nav-link">FAQ</a>
+        <a href="refund.html" class="mobile-nav-link">Return & Refund Policy</a>
+        <a href="orders.html" class="mobile-nav-link">Orders & Notice</a>
+      </div>
+      <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem;">
+        <button class="btn btn-primary open-order-notice-btn" style="width: 100%;">Order Online</button>
+        <a href="tel:+14082583529" class="btn btn-outline" style="width: 100%; text-align: center;">Call (408) 258-3529</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION (With Burnt Almond Cake & iPhone Mockup) -->
+    <section class="rewards-hero" aria-label="Peters Bakery Rewards Hero">
+      <div class="container rewards-hero-grid">
+        
+        <!-- Left Content -->
+        <div class="rewards-hero-content">
+          <div class="rewards-badge">
+            <span>🧁</span> Official Peters' Bakery Loyalty Program
+          </div>
+          <h1 class="rewards-hero-title">
+            Every Sweet Bite <br>
+            <span class="accent-text">Gives 1% Back</span>
+          </h1>
+          <p class="rewards-hero-desc">
+            No punch cards or confusing points math. Every purchase of <strong>$25 or above</strong> rewards you with a direct <strong>1% credit in real dollars and cents</strong>, ready to spend on our famous Burnt Almond Cake and morning favorites!
+          </p>
+
+          <div class="rewards-hero-actions">
+            <a href="#rewards-account-anchor" class="btn btn-primary btn-lg">
+              Register for Rewards
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#calculator-anchor" class="btn btn-outline btn-lg">
+              Rewards Calculator
+            </a>
+          </div>
+
+          <div class="rewards-highlight-cards">
+            <div class="highlight-mini-card">
+              <span class="val">1.0%</span>
+              <span class="lbl">Cash Credit on $25+</span>
+            </div>
+            <div class="highlight-mini-card">
+              <span class="val">$ and ¢</span>
+              <span class="lbl">Real Store Credit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Showcase: Burnt Almond Cake & iPhone Mockup -->
+        <div class="showcase-container">
+          
+          <!-- Cake Card (Floating behind iPhone) -->
+          <div class="cake-feature-card">
+            <img src="/assets/images/burnt-almond.jpg" alt="Signature Burnt Almond Cake" class="cake-feature-img">
+            <div class="cake-feature-body">
+              <span class="cake-feature-tag">Original Recipe</span>
+              <h4 class="cake-feature-title">Burnt Almond Cake</h4>
+              <p class="cake-feature-sub">Earn 1% credit on all 8", 10", 1/4, 1/2 &amp; Full Sheet cakes!</p>
+            </div>
+          </div>
+
+          <!-- Realistic iPhone 15 Pro Frame -->
+          <div class="iphone-device">
+            <!-- App Under Construction Ribbon -->
+            <div class="app-construction-ribbon">
+              Under Construction
+            </div>
+
+            <!-- Dynamic Island -->
+            <div class="iphone-island">
+              <div class="island-camera"></div>
+            </div>
+
+            <!-- Screen Content -->
+            <div class="iphone-screen">
+              <!-- Top Status Bar -->
+              <div class="iphone-status-bar">
+                <span>9:41</span>
+                <span>5G &bull; 100%</span>
+              </div>
+
+              <!-- Inner App Experience -->
+              <div class="app-inner-content">
+                <div class="app-brand-header">
+                  <img src="/assets/images/logo.png" alt="Peters' Logo" class="app-logo-mini">
+                  <span class="app-brand-name">Peters' Bakery Rewards</span>
+                </div>
+
+                <!-- Digital Loyalty Pass -->
+                <div class="app-vip-card">
+                  <span class="app-vip-badge">Sweet Member Tier</span>
+                  <div class="app-reward-val" id="iphone-card-balance">$3.48</div>
+                  <div class="app-reward-lbl">Available Rewards Balance</div>
+                  <div class="app-vip-footer">
+                    <span>1% Cash Credit on $25+</span>
+                    <span>PB-LOYALTY-1936</span>
+                  </div>
+                </div>
+
+                <!-- Barcode Card for Counter Scan -->
+                <div class="app-barcode-box">
+                  <div class="app-barcode-lines"></div>
+                  <span class="app-barcode-num">PB 8849 0193 6025</span>
+                </div>
+
+                <!-- Recent Perk / Cake Item -->
+                <div class="app-perk-row">
+                  <div class="app-perk-icon">🍰</div>
+                  <div>
+                    <h5 class="app-perk-title">Burnt Almond Cake Order</h5>
+                    <p class="app-perk-sub">+$0.49 Credit Earned (1% on $48.50)</p>
+                  </div>
+                </div>
+
+                <div class="app-perk-row" style="background:#FFF8E7; border-color:#E0A94F;">
+                  <div class="app-perk-icon">📱</div>
+                  <div>
+                    <h5 class="app-perk-title">Mobile App In Development</h5>
+                    <p class="app-perk-sub">iOS &amp; Android App Launching Soon!</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. THREE EASY STEPS (Inspired by 7 Leaves Cafe) -->
+    <section class="rewards-steps-section" aria-label="How Rewards Work">
+      <div class="container text-center">
+        <span class="section-tag">Simple &amp; Rewarding</span>
+        <h2 class="section-title">How Peters' Bakery Rewards Works</h2>
+        <p class="section-subtitle">No complicated point charts. Three steps to sweet savings in real dollars and cents.</p>
+
+        <div class="steps-grid">
+          
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number-badge">1</div>
+            <h3 class="step-card-title">Join Free</h3>
+            <p class="step-card-desc">
+              Create your account in seconds with your name and email. Set a secure password to unlock your personal Customer Rewards Window.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number-badge">2</div>
+            <h3 class="step-card-title">Order $25 or Above</h3>
+            <p class="step-card-desc">
+              Every bakery order of <strong>$25.00 or more</strong> instantly qualifies you to receive a <strong>1% credit in dollars and cents</strong> added straight to your balance.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number-badge">3</div>
+            <h3 class="step-card-title">Redeem &amp; Savor</h3>
+            <p class="step-card-desc">
+              Your accumulated credit never expires. Redeem your balance in dollars and cents toward custom celebration cakes, cookies, and pastries!
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CUSTOMER REWARDS WINDOW & REGISTRATION SECTION -->
+    <section class="rewards-account-section" id="rewards-account-anchor" aria-label="Customer Account & Rewards Window">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 3rem;">
+          <span class="section-tag">Member Portal</span>
+          <h2 class="section-title">Your Rewards Account &amp; Balance Window</h2>
+          <p class="section-subtitle">Register to collect rewards points or view your current balance in real dollars and cents.</p>
+        </div>
+
+        <div class="rewards-account-grid">
+          
+          <!-- Left: Registration & Login Card -->
+          <div class="account-auth-card">
+            
+            <div class="auth-tab-buttons" role="tablist">
+              <button class="auth-tab-btn active" id="tab-register-btn" onclick="switchAuthTab('register')">Register New Member</button>
+              <button class="auth-tab-btn" id="tab-signin-btn" onclick="switchAuthTab('signin')">Member Sign In</button>
+            </div>
+
+            <!-- REGISTRATION FORM -->
+            <form id="rewards-register-form" onsubmit="handleRegistration(event)">
+              <div class="auth-form-group">
+                <label for="reg-name" class="auth-form-label">Full Name *</label>
+                <input type="text" id="reg-name" class="auth-form-input" placeholder="e.g. Maria Gonzalez" required>
+              </div>
+
+              <div class="auth-form-group">
+                <label for="reg-email" class="auth-form-label">Email Address *</label>
+                <input type="email" id="reg-email" class="auth-form-input" placeholder="maria@example.com" required>
+              </div>
+
+              <div class="auth-form-group">
+                <label for="reg-password" class="auth-form-label">Create Password *</label>
+                <div class="password-wrapper">
+                  <input type="password" id="reg-password" class="auth-form-input" placeholder="Create a secure password" minlength="6" required>
+                  <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('reg-password')">Show</button>
+                </div>
+              </div>
+
+              <div class="auth-form-group">
+                <label for="reg-confirm-password" class="auth-form-label">Confirm Password *</label>
+                <div class="password-wrapper">
+                  <input type="password" id="reg-confirm-password" class="auth-form-input" placeholder="Confirm your password" minlength="6" required>
+                  <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('reg-confirm-password')">Show</button>
+                </div>
+              </div>
+
+              <div class="auth-form-group">
+                <label for="reg-treat" class="auth-form-label">Favorite Peters' Bakery Specialty</label>
+                <select id="reg-treat" class="auth-form-select">
+                  <option value="Burnt Almond Cake">Original Burnt Almond Cake (San Jose Favorite)</option>
+                  <option value="Strawberry Ring">Strawberry Ring Puff Pastry</option>
+                  <option value="Beehive Coffee Cake">Beehive Bavarian Custard Cake</option>
+                  <option value="Dutch Apple Pie">Dutch Apple &amp; Cream Pies</option>
+                  <option value="Assorted Cookies">Assorted Butter Cookies &amp; Bars</option>
+                  <option value="Portuguese Loaf">Traditional Portuguese Hearth Loaf</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted);">
+                <input type="checkbox" id="reg-app-notify" checked style="margin-top: 3px;">
+                <label for="reg-app-notify">Notify me via email when the iOS / Android mobile app launches from construction!</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1.05rem;">
+                Create Rewards Account &amp; Activate 1% Credit
+              </button>
+            </form>
+
+            <!-- SIGN IN FORM (Initially Hidden) -->
+            <form id="rewards-signin-form" style="display: none;" onsubmit="handleSignIn(event)">
+              <div class="auth-form-group">
+                <label for="login-email" class="auth-form-label">Email Address *</label>
+                <input type="email" id="login-email" class="auth-form-input" placeholder="Enter your registered email" required>
+              </div>
+
+              <div class="auth-form-group">
+                <label for="login-password" class="auth-form-label">Password *</label>
+                <div class="password-wrapper">
+                  <input type="password" id="login-password" class="auth-form-input" placeholder="Enter your password" required>
+                  <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('login-password')">Show</button>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1.05rem; margin-top: 1rem;">
+                Sign In to Rewards Window
+              </button>
+            </form>
+
+          </div>
+
+          <!-- Right: Customer Reward Window (Live Dollars & Cents Display) -->
+          <div class="customer-reward-window" id="customer-reward-window">
+            
+            <div class="window-header">
+              <div>
+                <h3 class="window-member-name" id="display-member-name">Guest Member</h3>
+                <span class="window-member-id" id="display-member-id">PB-REWARDS-1936</span>
+              </div>
+              <span class="window-tier-badge" id="display-member-status">1% Credit Active</span>
+            </div>
+
+            <!-- Dollars & Cents Balance -->
+            <div class="window-balance-display">
+              <div class="balance-label">Current Available Reward Window</div>
+              <div class="balance-amount" id="display-balance">$0.00</div>
+              <div class="balance-cents-note">Earned in exact dollars &amp; cents</div>
+            </div>
+
+            <!-- Stats Breakdown -->
+            <div class="window-stats-row">
+              <div class="window-stat-box">
+                <span class="val" id="display-qualifying-orders">0</span>
+                <span class="lbl">Orders ($25+) Placed</span>
+              </div>
+              <div class="window-stat-box">
+                <span class="val" id="display-lifetime-credit">$0.00</span>
+                <span class="lbl">Lifetime Credit</span>
+              </div>
+            </div>
+
+            <!-- Rule Callout -->
+            <div class="window-rule-callout">
+              <strong>1% Reward Rule:</strong> Every purchase of <strong>$25.00 or above</strong> earns a credit of <strong>1% in dollar and cent</strong> (e.g. $45 = $0.45, $100 = $1.00). Orders under $25 earn $0.00.
+            </div>
+
+            <div class="window-actions">
+              <button class="btn btn-primary open-order-notice-btn" style="width: 100%; justify-content: center;">
+                Order Online &amp; Earn Credit
+              </button>
+              <a href="#calculator-anchor" class="btn btn-outline" style="width: 100%; text-align: center; border-color: rgba(255,255,255,0.4); color:#FFFFFF;">
+                Test Purchase in Simulator Below
+              </a>
+              <button id="signout-btn" onclick="handleSignOut()" class="btn" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); display: none; margin-top: 0.25rem;">
+                Sign Out
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. INTERACTIVE REWARDS CALCULATOR & PURCHASE SIMULATOR -->
+    <section class="calculator-section" id="calculator-anchor" aria-label="1% Rewards Calculator">
+      <div class="container">
+        
+        <div class="text-center" style="margin-bottom: 2.5rem;">
+          <span class="section-tag">Interactive Calculator</span>
+          <h2 class="section-title">Purchase Credit Simulator</h2>
+          <p class="section-subtitle">
+            See your exact 1% credit in dollars and cents for purchases of $25 or above. Test any purchase amount and add it directly to your Rewards Window!
+          </p>
+        </div>
+
+        <div class="calc-container">
+          
+          <label class="auth-form-label" style="font-size: 1rem; margin-bottom: 0.5rem;">
+            Choose a Sample Order or Enter Custom Total:
+          </label>
+
+          <!-- Quick presets -->
+          <div class="calc-presets">
+            <button class="calc-preset-btn" onclick="setCalcAmount(18.00)">$18.00 (Pastry Box • Under $25)</button>
+            <button class="calc-preset-btn" onclick="setCalcAmount(25.00)">$25.00 (Minimum Qualifying)</button>
+            <button class="calc-preset-btn" onclick="setCalcAmount(48.50)">$48.50 (8" Burnt Almond Cake)</button>
+            <button class="calc-preset-btn" onclick="setCalcAmount(78.00)">$78.00 (10" Burnt Almond Cake)</button>
+            <button class="calc-preset-btn" onclick="setCalcAmount(135.00)">$135.00 (Celebration Catering)</button>
+          </div>
+
+          <!-- Input Row -->
+          <div class="calc-input-row">
+            <div class="calc-input-wrapper">
+              <span class="calc-dollar-sign">$</span>
+              <input type="number" id="calc-purchase-input" class="calc-input" min="0" step="0.50" value="48.50" oninput="calculateReward()">
+            </div>
+          </div>
+
+          <!-- Dynamic Results Box -->
+          <div class="calc-result-box qualified" id="calc-result-box">
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h4 id="calc-status-title" style="margin: 0 0 0.25rem; font-size: 1.15rem; color: #065F46;">
+                  🎉 Qualified for 1% Credit!
+                </h4>
+                <p id="calc-status-desc" style="margin: 0; font-size: 0.92rem; color: #047857;">
+                  Purchase meets the $25.00 minimum threshold.
+                </p>
+              </div>
+
+              <button class="btn btn-primary" onclick="applyTestCreditToWindow()" id="btn-apply-credit">
+                + Add Credit to My Rewards Window
+              </button>
+            </div>
+
+            <div class="calc-grid-results">
+              <div class="calc-grid-item">
+                <span class="lbl">Order Amount</span>
+                <span class="val" id="calc-res-order">$48.50</span>
+              </div>
+              <div class="calc-grid-item">
+                <span class="lbl">Credit Rate</span>
+                <span class="val" id="calc-res-rate">1.0%</span>
+              </div>
+              <div class="calc-grid-item">
+                <span class="lbl">You Earn (Dollars &amp; Cents)</span>
+                <span class="val" id="calc-res-credit" style="color: #059669;">+$0.49</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. RECENT REWARDS ACTIVITY LEDGER -->
+    <section class="ledger-section" aria-label="Rewards Activity Ledger">
+      <div class="container">
+        
+        <div class="text-center">
+          <span class="section-tag">Activity Ledger</span>
+          <h2 class="section-title">Your Rewards History</h2>
+          <p class="section-subtitle">Real-time breakdown of all qualifying orders and accumulated dollars and cents.</p>
+        </div>
+
+        <div class="ledger-table-wrap">
+          <table class="ledger-table" id="ledger-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Order Description</th>
+                <th>Purchase Total</th>
+                <th>Reward Rate</th>
+                <th>Credit Earned</th>
+                <th>Updated Balance</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-table-body">
+              <tr>
+                <td>Welcome Bonus</td>
+                <td>Rewards Account Activation Welcome Bonus</td>
+                <td>$0.00</td>
+                <td>Promo</td>
+                <td class="ledger-credit-earned">+$0.00</td>
+                <td>$0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. FREQUENTLY ASKED QUESTIONS (7 Leaves Cafe Style) -->
+    <section class="rewards-faq-section" aria-label="Rewards FAQ">
+      <div class="container" style="max-width: 860px;">
+        
+        <div class="text-center" style="margin-bottom: 3.5rem;">
+          <span class="section-tag">Got Questions?</span>
+          <h2 class="section-title">Rewards Questions, Answered</h2>
+          <p class="section-subtitle">Everything you need to know about earning 1% credit on purchases of $25 or more.</p>
+        </div>
+
+        <div class="faq-list">
+          
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-question-text">Q: How does Peters' Bakery Rewards work?</span>
+              <span class="faq-icon-arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <strong>A:</strong> Simply create your account on this page! Every time you order $25 or more in-store or online, you earn a 1% cash credit in real dollars and cents that you can use on future cakes, cookies, and pastries.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-question-text">Q: What is the $25 purchase requirement?</span>
+              <span class="faq-icon-arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <strong>A:</strong> To qualify for the 1% rewards credit, an order must have a subtotal of $25.00 or higher. Purchases below $25.00 do not accrue rewards credit. Once you reach or exceed $25.00, you receive a full 1% credit in dollars and cents on the entire order amount!
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-question-text">Q: How is the 1% credit calculated in dollars and cents?</span>
+              <span class="faq-icon-arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <strong>A:</strong> It is simple arithmetic with no rounding tricks:
+                <ul style="margin: 0.5rem 0 0.5rem 1.25rem; line-height: 1.8;">
+                  <li>A <strong>$25.00</strong> purchase earns <strong>$0.25</strong> credit.</li>
+                  <li>A <strong>$48.50</strong> (8" Burnt Almond Cake) purchase earns <strong>$0.49</strong> credit.</li>
+                  <li>A <strong>$78.00</strong> (10" Burnt Almond Cake) purchase earns <strong>$0.78</strong> credit.</li>
+                  <li>A <strong>$100.00</strong> purchase earns <strong>$1.00</strong> credit.</li>
+                  <li>A <strong>$200.00</strong> catering order earns <strong>$2.00</strong> credit.</li>
+                </ul>
+                Any fraction of a cent is rounded to the nearest full cent.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-question-text">Q: What is the status of the mobile app?</span>
+              <span class="faq-icon-arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <strong>A:</strong> Our native iOS and Android mobile app is currently under construction! In the meantime, our responsive website provides full digital rewards tracking and customer window access right from your mobile browser. When the app launches, all your registered email credentials and rewards balances will seamlessly carry over.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-question-text">Q: Can I use my rewards credit toward Burnt Almond Cake?</span>
+              <span class="faq-icon-arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <strong>A:</strong> Absolutely! Your dollars-and-cents reward credit can be applied toward any bakery item, including our world-famous Burnt Almond Cake, Strawberry Rings, fresh morning danishes, fruit tarts, cream pies, and artisan breads.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span class="faq-question-text">Q: Do my rewards credits ever expire?</span>
+              <span class="faq-icon-arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <strong>A:</strong> No! Your Peters' Bakery Rewards credit never expires. Let your balance grow and save it for a special holiday or birthday treat whenever you're ready.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Official Orders Notice Modal -->
+  <div class="modal-overlay" id="orders-notice-modal" role="dialog" aria-modal="true" aria-labelledby="modal-notice-title">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" aria-label="Close Notice">&times;</button>
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span class="notice-badge">Important Ordering Notice</span>
+        <h3 id="modal-notice-title" style="font-size: 1.75rem; margin-top: 0.5rem;">Welcome to Peters' Bakery</h3>
+      </div>
+      
+      <div style="font-size: 0.98rem; color: var(--color-text-muted); line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
+        <p>
+          If this is your first time to Peters’ Bakery, welcome. <strong>Online orders require a 48 hour lead time.</strong> Make sure to select your desired pickup date and time during checkout.
+        </p>
+        <div style="background: var(--color-almond-soft); padding: 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--color-caramel); color: #633E18; font-size: 0.92rem;">
+          <strong>Heads Up on Lines &amp; Pickup:</strong> We are a small business with a small lobby and only one main door. There is no separate line for pre-orders versus walk-in customers. On weekends and holidays, please prepare to arrive earlier than your desired pickup time.
+        </div>
+        <p>
+          When adequate staffing allows, we open a side door for pre-orders, though staffing shortages may sometimes prevent this. Thank you for stopping by our home!
+        </p>
+      </div>
+
+      <div style="display: flex; justify-content: center; margin-top: 2rem;">
+        <a href="/online/petersbakery" class="btn btn-primary" id="modal-accept-btn" style="width: 100%; text-align: center; padding: 0.875rem 2rem; font-size: 1.05rem;">
+          I Accept &bull; Order on Toast Tab
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Your Bakery Box</h3>
+      <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items-container" id="cart-items-container">
+      <div class="empty-cart-msg">Your bakery box is empty. Add a treat!</div>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span>Estimated Subtotal:</span>
+        <span class="cart-total-price" id="cart-total-price">$0.00</span>
+      </div>
+      <button class="btn btn-primary open-order-notice-btn" style="width: 100%; text-align: center;">
+        Proceed to Toast Tab Order
+      </button>
+    </div>
+  </aside>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" id="SITE_FOOTER">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <img src="assets/images/logo.png" alt="Peters' Bakery" class="footer-logo-img">
+            <span class="footer-brand-title">Peters' Bakery</span>
+          </div>
+          <p class="footer-brand-desc">
+            Serving San Jose and Silicon Valley with legendary baked goods, authentic custard fillings, and our world-famous Burnt Almond Cake since 1936.
+          </p>
+          <div class="social-links-row">
+            <a href="https://www.yelp.ca/biz/peters-bakery-san-jose-2" target="_blank" rel="noopener" class="social-link" title="Yelp" aria-label="Yelp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5v-2.1l1.9 1.9c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4L14.4 13h2.1c.6 0 1-.4 1-1s-.4-1-1-1h-2.1l1.9-1.9c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L13 9.6V7.5c0-.6-.4-1-1-1s-1 .4-1 1v2.1l-1.9-1.9c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l1.9 1.9H7.5c-.6 0-1 .4-1 1s.4 1 1 1h2.1l-1.9 1.9c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0l1.9-1.9v2.1c0 .6.4 1 1 1s1-.4 1-1z"/></svg></a>
+            <a href="https://fb.com/petersbakery" target="_blank" rel="noopener" class="social-link" title="Facebook" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.instagram.com/peters.bakery/" target="_blank" rel="noopener" class="social-link" title="Instagram" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <div class="footer-links-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us &amp; History</a>
+            <a href="rewards.html">Peters' Bakery Rewards</a>
+            <a href="gallery.html">Photo Gallery</a>
+            <a href="faq.html">Frequently Asked Questions</a>
+            <a href="refund.html">Return &amp; Refund Policy</a>
+            <a href="orders.html">Online Ordering Notice</a>
+          </div>
+        </div>
+
+        <!-- Hours of Operation -->
+        <div>
+          <h4 class="footer-col-title">Store Hours</h4>
+          <div class="footer-hours-list">
+            <div class="footer-hours-row">
+              <span>Tuesday – Saturday</span>
+              <span>6:30am – 6:00pm</span>
+            </div>
+            <div class="footer-hours-row" style="color: rgba(255,255,255,0.4);">
+              <span>Sunday &amp; Monday</span>
+              <span>Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Store Location -->
+        <div>
+          <h4 class="footer-col-title">Bakery Location</h4>
+          <address style="font-style: normal; font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.75);">
+            3108 Alum Rock Ave<br>
+            San Jose, CA 95127<br>
+            East San Jose Foothills<br>
+            <a href="tel:+14082583529" style="color: var(--color-caramel); font-weight: 600;">(408) 258-3529</a>
+          </address>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Peters' Bakery. Celebrating 90 Years of Artisanal Baking in San Jose, CA.</p>
+        <p>Original Home of the Burnt Almond Cake &bull; Est. 1936</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    /* ==========================================================================
+       REWARDS PAGE CLIENT LOGIC
+       ========================================================================== */
+
+    // In-memory / localStorage state
+    let currentUser = null;
+    let transactions = [];
+
+    // Initialize state
+    document.addEventListener('DOMContentLoaded', () => {
+      loadStoredUser();
+      calculateReward();
+      initFaqAccordions();
+    });
+
+    function loadStoredUser() {
+      const stored = localStorage.getItem('pb_rewards_user');
+      if (stored) {
+        try {
+          currentUser = JSON.parse(stored);
+        } catch(e) {
+          currentUser = null;
+        }
+      }
+      
+      const storedTx = localStorage.getItem('pb_rewards_tx');
+      if (storedTx) {
+        try {
+          transactions = JSON.parse(storedTx);
+        } catch(e) {
+          transactions = [];
+        }
+      }
+
+      updateUserDisplay();
+    }
+
+    function saveUserData() {
+      if (currentUser) {
+        localStorage.setItem('pb_rewards_user', JSON.stringify(currentUser));
+      } else {
+        localStorage.removeItem('pb_rewards_user');
+      }
+      localStorage.setItem('pb_rewards_tx', JSON.stringify(transactions));
+    }
+
+    function updateUserDisplay() {
+      const nameEl = document.getElementById('display-member-name');
+      const idEl = document.getElementById('display-member-id');
+      const balEl = document.getElementById('display-balance');
+      const iphoneBalEl = document.getElementById('iphone-card-balance');
+      const ordersEl = document.getElementById('display-qualifying-orders');
+      const lifetimeEl = document.getElementById('display-lifetime-credit');
+      const signoutBtn = document.getElementById('signout-btn');
+
+      if (currentUser) {
+        nameEl.textContent = currentUser.name;
+        idEl.textContent = currentUser.memberId;
+        balEl.textContent = `$${currentUser.balance.toFixed(2)}`;
+        if (iphoneBalEl) iphoneBalEl.textContent = `$${currentUser.balance.toFixed(2)}`;
+        ordersEl.textContent = currentUser.qualifyingOrders || 0;
+        lifetimeEl.textContent = `$${(currentUser.lifetimeCredit || 0).toFixed(2)}`;
+        signoutBtn.style.display = 'block';
+      } else {
+        nameEl.textContent = 'Guest Member';
+        idEl.textContent = 'PB-REWARDS-1936';
+        balEl.textContent = '$0.00';
+        if (iphoneBalEl) iphoneBalEl.textContent = '$3.48';
+        ordersEl.textContent = '0';
+        lifetimeEl.textContent = '$0.00';
+        signoutBtn.style.display = 'none';
+      }
+
+      renderLedger();
+    }
+
+    // Toggle Registration / Sign In tabs
+    function switchAuthTab(tab) {
+      const regBtn = document.getElementById('tab-register-btn');
+      const signinBtn = document.getElementById('tab-signin-btn');
+      const regForm = document.getElementById('rewards-register-form');
+      const signinForm = document.getElementById('rewards-signin-form');
+
+      if (tab === 'register') {
+        regBtn.classList.add('active');
+        signinBtn.classList.remove('active');
+        regForm.style.display = 'block';
+        signinForm.style.display = 'none';
+      } else {
+        signinBtn.classList.add('active');
+        regBtn.classList.remove('active');
+        signinForm.style.display = 'block';
+        regForm.style.display = 'none';
+      }
+    }
+
+    // Password visibility toggle
+    function togglePasswordVisibility(fieldId) {
+      const input = document.getElementById(fieldId);
+      if (!input) return;
+      if (input.type === 'password') {
+        input.type = 'text';
+      } else {
+        input.type = 'password';
+      }
+    }
+
+    // Handle Registration
+    function handleRegistration(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+      const confirmPassword = document.getElementById('reg-confirm-password').value;
+      const treat = document.getElementById('reg-treat').value;
+
+      if (!name || !email || !password) {
+        alert('Please complete all required fields.');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match. Please re-enter your password.');
+        return;
+      }
+
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long.');
+        return;
+      }
+
+      // Generate random membership ID
+      const randomCode = Math.floor(1000 + Math.random() * 9000);
+      const memberId = `PB-${randomCode}-GOLD`;
+
+      currentUser = {
+        name: name,
+        email: email,
+        password: password,
+        treat: treat,
+        memberId: memberId,
+        balance: 1.00, // $1.00 Welcome credit!
+        qualifyingOrders: 0,
+        lifetimeCredit: 1.00,
+        joinedAt: new Date().toLocaleDateString('en-US')
+      };
+
+      transactions = [
+        {
+          date: new Date().toLocaleDateString('en-US'),
+          description: `Welcome Bonus for Joining Peters' Bakery Rewards (${treat})`,
+          amount: 0.00,
+          rate: 'Bonus',
+          credit: 1.00,
+          balance: 1.00
+        }
+      ];
+
+      saveUserData();
+      updateUserDisplay();
+
+      // Show success feedback
+      alert(`Welcome to Peters' Bakery Rewards, ${name}! Your account has been registered with ID: ${memberId}. We have credited $1.00 in welcome dollars and cents to your Rewards Window!`);
+      
+      // Scroll to Rewards Window
+      const windowCard = document.getElementById('customer-reward-window');
+      if (windowCard) {
+        windowCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Handle Sign In
+    function handleSignIn(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      const stored = localStorage.getItem('pb_rewards_user');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed.email.toLowerCase() === email.toLowerCase() && parsed.password === password) {
+          currentUser = parsed;
+          updateUserDisplay();
+          alert(`Welcome back, ${currentUser.name}! Your Customer Rewards Window is active.`);
+          return;
+        }
+      }
+
+      // If no exact match found, allow demo sign-in
+      currentUser = {
+        name: email.split('@')[0].replace('.', ' '),
+        email: email,
+        password: password,
+        memberId: 'PB-7749-GOLD',
+        balance: 2.50,
+        qualifyingOrders: 2,
+        lifetimeCredit: 2.50,
+        joinedAt: new Date().toLocaleDateString('en-US')
+      };
+      saveUserData();
+      updateUserDisplay();
+      alert(`Signed in as ${currentUser.name}! Customer Rewards Window updated.`);
+    }
+
+    // Handle Sign Out
+    function handleSignOut() {
+      if (confirm('Are you sure you want to sign out of your rewards session?')) {
+        currentUser = null;
+        updateUserDisplay();
+      }
+    }
+
+    // Set sample amount from presets
+    function setCalcAmount(amt) {
+      const input = document.getElementById('calc-purchase-input');
+      input.value = amt.toFixed(2);
+      calculateReward();
+    }
+
+    // Calculate 1% reward on $25+
+    function calculateReward() {
+      const input = document.getElementById('calc-purchase-input');
+      const val = parseFloat(input.value) || 0;
+
+      const resBox = document.getElementById('calc-result-box');
+      const titleEl = document.getElementById('calc-status-title');
+      const descEl = document.getElementById('calc-status-desc');
+      const orderEl = document.getElementById('calc-res-order');
+      const rateEl = document.getElementById('calc-res-rate');
+      const creditEl = document.getElementById('calc-res-credit');
+      const applyBtn = document.getElementById('btn-apply-credit');
+
+      orderEl.textContent = `$${val.toFixed(2)}`;
+
+      if (val < 25.00) {
+        // Unqualified: Under $25 threshold
+        resBox.className = 'calc-result-box unqualified';
+        titleEl.textContent = '⚠️ Does Not Meet $25.00 Threshold';
+        titleEl.style.color = '#92400E';
+        const needed = (25.00 - val).toFixed(2);
+        descEl.textContent = `Add $${needed} more to qualify for 1% credit. Orders under $25 earn $0.00.`;
+        descEl.style.color = '#B45309';
+
+        rateEl.textContent = '0.0%';
+        creditEl.textContent = '$0.00';
+        creditEl.style.color = '#92400E';
+        applyBtn.disabled = true;
+        applyBtn.style.opacity = '0.5';
+      } else {
+        // Qualified: $25 or higher
+        resBox.className = 'calc-result-box qualified';
+        titleEl.textContent = '🎉 Qualified for 1% Credit!';
+        titleEl.style.color = '#065F46';
+        descEl.textContent = 'Order is $25.00 or above! You earn a direct 1% credit in dollars and cents.';
+        descEl.style.color = '#047857';
+
+        const credit = Math.round(val * 0.01 * 100) / 100; // Exact cents
+        rateEl.textContent = '1.0%';
+        creditEl.textContent = `+$${credit.toFixed(2)}`;
+        creditEl.style.color = '#059669';
+        applyBtn.disabled = false;
+        applyBtn.style.opacity = '1';
+      }
+    }
+
+    // Apply Test Credit from Simulator into Customer Rewards Window
+    function applyTestCreditToWindow() {
+      const input = document.getElementById('calc-purchase-input');
+      const val = parseFloat(input.value) || 0;
+
+      if (val < 25.00) {
+        alert('Minimum purchase to earn rewards credit is $25.00.');
+        return;
+      }
+
+      const credit = Math.round(val * 0.01 * 100) / 100;
+
+      if (!currentUser) {
+        // Auto-create a guest member so they can immediately test the window!
+        currentUser = {
+          name: 'Jane Doe',
+          email: 'jane.doe@example.com',
+          password: 'password123',
+          memberId: 'PB-9136-GOLD',
+          balance: 0.00,
+          qualifyingOrders: 0,
+          lifetimeCredit: 0.00
+        };
+      }
+
+      currentUser.balance = Math.round((currentUser.balance + credit) * 100) / 100;
+      currentUser.qualifyingOrders = (currentUser.qualifyingOrders || 0) + 1;
+      currentUser.lifetimeCredit = Math.round(((currentUser.lifetimeCredit || 0) + credit) * 100) / 100;
+
+      // Add to transaction ledger
+      transactions.unshift({
+        date: new Date().toLocaleDateString('en-US'),
+        description: `Bakery Purchase ($${val.toFixed(2)} qualifying order)`,
+        amount: val,
+        rate: '1.0%',
+        credit: credit,
+        balance: currentUser.balance
+      });
+
+      saveUserData();
+      updateUserDisplay();
+
+      // Visual flash animation on balance
+      const balEl = document.getElementById('display-balance');
+      balEl.style.transform = 'scale(1.2)';
+      balEl.style.color = '#34D399';
+      setTimeout(() => {
+        balEl.style.transform = 'scale(1)';
+        balEl.style.color = '#F7D299';
+      }, 500);
+
+      alert(`Success! Added +$${credit.toFixed(2)} in 1% rewards credit to your Customer Rewards Window. Your new balance is $${currentUser.balance.toFixed(2)}.`);
+
+      const windowCard = document.getElementById('customer-reward-window');
+      if (windowCard) {
+        windowCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Render Transaction Ledger
+    function renderLedger() {
+      const tbody = document.getElementById('ledger-table-body');
+      if (!tbody) return;
+
+      if (transactions.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td>Today</td>
+            <td>Register your account above to begin recording rewards transactions</td>
+            <td>$0.00</td>
+            <td>—</td>
+            <td>$0.00</td>
+            <td>$0.00</td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = transactions.map(tx => `
+        <tr>
+          <td>${tx.date}</td>
+          <td>${tx.description}</td>
+          <td>$${tx.amount.toFixed(2)}</td>
+          <td><span style="background:var(--color-almond-soft); color:#8C531B; padding:2px 8px; border-radius:12px; font-weight:700; font-size:0.8rem;">${tx.rate}</span></td>
+          <td class="ledger-credit-earned">+${typeof tx.credit === 'number' ? '$' + tx.credit.toFixed(2) : tx.credit}</td>
+          <td><strong>$${tx.balance.toFixed(2)}</strong></td>
+        </tr>
+      `).join('');
+    }
+
+    // FAQ Accordion Toggle
+    function initFaqAccordions() {
+      document.querySelectorAll('.faq-question-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', !isExpanded);
+          const answer = btn.nextElementSibling;
+          if (!isExpanded) {
+            answer.classList.add('active');
+          } else {
+            answer.classList.remove('active');
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>

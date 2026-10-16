@@ -7,6 +7,7 @@
     { "source": "/menu.html", "destination": "/online/petersbakery", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/rewards", "destination": "/rewards.html" },
     { "source": "/online/petersbakery", "destination": "/online/petersbakery.html" },
     { "source": "/order.toasttab.com/online/petersbakery", "destination": "/online/petersbakery.html" },
     { "source": "/toasttab", "destination": "/online/petersbakery.html" },

@@ -19,6 +19,7 @@ A faithful, high-fidelity clone of **[Peters' Bakery](https://www.petersbakery.c
    - **Photo Gallery (`gallery.html`)**: 15 authentic gallery photos with category tags and a full-screen interactive **Lightbox Viewer** supporting keyboard and arrow navigation.
    - **FAQ (`faq.html`)**: All 14 official Peters' Bakery questions & answers (dietary restrictions, Burnt Almond Cake ingredients, Goldbelly delivery explanation, pre-order lines, wedding cakes, storage tips) featuring animated accordions and a **live search filter**.
    - **Orders & Notice (`orders.html`)**: Official 48-hour advance notice advisory, small lobby guidance, direct link to official Toast Tab, plus an interactive **Custom Burnt Almond Cake Builder** with size selections, custard flavors, and custom chocolate script inscriptions.
+   - **Rewards & Loyalty Program (`rewards.html`)**: 7 Leaves Cafe-inspired rewards club with Burnt Almond Cake & iPhone mockup, mobile app under construction advisory, user registration with password, customer rewards window in dollars and cents, and 1% credit on purchases $25+.
    - **Return & Refund Policy (`refund.html`)**: Complete, official 48-hour return requirements, product evaluation policy, non-refundable items, and donation guidelines.
 
 3. **Interactive Features & E-Commerce Cart**
@@ -70,6 +71,7 @@ python3 -m http.server 3030
 ├── index.html            # Homepage
 ├── about.html            # About Us & 88-Year History
 ├── gallery.html          # High-Res Photo Gallery with Lightbox
+├── rewards.html          # Peters' Bakery Rewards Program (1% Credit on $25+)
 ├── faq.html              # Frequently Asked Questions with Live Search
 ├── orders.html           # Online Ordering Notice & Cake Customizer
 ├── refund.html           # Return & Refund Policy
