@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { items, pickupDate, pickupTime, customerNotes } = req.body || {};
+    const { items, pickupDate, pickupTime, customerNotes, successUrl, cancelUrl } = req.body || {};
 
     if (!items || !Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ error: 'Your bakery box is empty' });
@@ -61,18 +61,18 @@ export default async function handler(req, res) {
       };
     });
 
+    const isDigitalOnly = items.every(
+      (i) => i.isDigital || (i.name && i.name.toLowerCase().includes('gift card'))
+    );
+
     // Create Checkout Session following Stripe Best Practices
-    const session = await stripe.checkout.sessions.create({
+    const sessionConfig = {
       mode: 'payment',
       line_items,
-      // Best Practice: Omit payment_method_types to enable Dynamic Payment Methods (Apple Pay, Google Pay, Cards, Link)
       automatic_tax: {
         enabled: true,
       },
       billing_address_collection: 'required',
-      shipping_address_collection: {
-        allowed_countries: ['US'],
-      },
       phone_number_collection: {
         enabled: true,
       },
@@ -82,9 +82,21 @@ export default async function handler(req, res) {
         customerNotes: (customerNotes || '').substring(0, 500),
         storeLocation: '3108 Alum Rock Ave, San Jose, CA 95127',
       },
-      success_url: `${origin}/order-success.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/orders.html#cart`,
-    });
+      success_url: successUrl
+        ? (successUrl.startsWith('http') ? successUrl : `${origin}${successUrl.startsWith('/') ? '' : '/'}${successUrl}`)
+        : `${origin}/order-success.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: cancelUrl
+        ? (cancelUrl.startsWith('http') ? cancelUrl : `${origin}${cancelUrl.startsWith('/') ? '' : '/'}${cancelUrl}`)
+        : `${origin}/orders.html#cart`,
+    };
+
+    if (!isDigitalOnly) {
+      sessionConfig.shipping_address_collection = {
+        allowed_countries: ['US'],
+      };
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionConfig);
 
     return res.status(200).json({
       id: session.id,

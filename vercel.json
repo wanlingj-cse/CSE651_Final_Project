@@ -5,7 +5,12 @@
   "rewrites": [
     { "source": "/online/petersbakery", "destination": "/online/petersbakery.html" },
     { "source": "/order.toasttab.com/online/petersbakery", "destination": "/online/petersbakery.html" },
-    { "source": "/toasttab", "destination": "/online/petersbakery.html" }
+    { "source": "/toasttab", "destination": "/online/petersbakery.html" },
+    { "source": "/egiftcards/petersbakery", "destination": "/egiftcards/petersbakery.html" },
+    { "source": "/order.toasttab.com/egiftcards/petersbakery", "destination": "/egiftcards/petersbakery.html" },
+    { "source": "/petersbakery/giftcards", "destination": "/egiftcards/petersbakery.html" },
+    { "source": "/egiftcards", "destination": "/egiftcards/petersbakery.html" },
+    { "source": "/giftcards", "destination": "/egiftcards/petersbakery.html" }
   ],
   "headers": [
     {
