@@ -1084,6 +1084,7 @@
       font-size: 0.8rem;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease;
     }
+    .faq-card:hover .faq-icon-arrow,
     .faq-card.open .faq-icon-arrow {
       transform: rotate(180deg);
       background: var(--color-caramel);
@@ -1093,10 +1094,13 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
     }
+    /* Show answer when mouse moves to the area of the question, and close when mouse leaves */
+    .faq-card:hover .faq-answer,
     .faq-card.open .faq-answer,
     .faq-answer.active {
+      max-height: 600px;
       opacity: 1;
     }
     .faq-answer-inner {
@@ -2699,25 +2703,39 @@
       }).join('');
     }
 
-    // FAQ Accordion Toggle — Shows answer on question click
+    // FAQ Accordion — Show answer on mouse hover over question, and close when mouse leaves
     function initFaqAccordions() {
-      document.querySelectorAll('.faq-question-btn').forEach((btn, index) => {
+      document.querySelectorAll('.faq-card').forEach((card) => {
+        const btn = card.querySelector('.faq-question-btn');
+        const answer = card.querySelector('.faq-answer');
+        if (!btn || !answer) return;
+
+        // 1. Mouse enters question/card area: Show answer smoothly
+        card.addEventListener('mouseenter', () => {
+          card.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          answer.classList.add('active');
+          answer.style.maxHeight = (answer.scrollHeight + 50) + 'px';
+        });
+
+        // 2. Mouse leaves question & answer area: Close answer smoothly
+        card.addEventListener('mouseleave', () => {
+          card.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          answer.classList.remove('active');
+          answer.style.maxHeight = '0px';
+        });
+
+        // 3. Click support (for mobile/tablet touch users)
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          const card = btn.closest('.faq-card');
-          const answer = card ? card.querySelector('.faq-answer') : btn.nextElementSibling;
-          if (!card || !answer) return;
-
           const isOpen = card.classList.contains('open');
-
           if (!isOpen) {
-            // Expand this answer
             card.classList.add('open');
             btn.setAttribute('aria-expanded', 'true');
             answer.classList.add('active');
             answer.style.maxHeight = (answer.scrollHeight + 50) + 'px';
           } else {
-            // Collapse this answer
             card.classList.remove('open');
             btn.setAttribute('aria-expanded', 'false');
             answer.classList.remove('active');
@@ -2725,19 +2743,6 @@
           }
         });
       });
-
-      // Expand the first FAQ answer by default so customers immediately see it!
-      const firstCard = document.querySelector('.faq-card');
-      if (firstCard) {
-        const firstBtn = firstCard.querySelector('.faq-question-btn');
-        const firstAnswer = firstCard.querySelector('.faq-answer');
-        if (firstBtn && firstAnswer) {
-          firstCard.classList.add('open');
-          firstBtn.setAttribute('aria-expanded', 'true');
-          firstAnswer.classList.add('active');
-          firstAnswer.style.maxHeight = (firstAnswer.scrollHeight + 50) + 'px';
-        }
-      }
     }
 
     // Supabase Config Modal Helpers

@@ -1301,6 +1301,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform var(--transition-normal);
 }
 
+.faq-card:hover .faq-icon-arrow,
 .faq-card.open .faq-icon-arrow {
   transform: rotate(180deg);
   background: var(--color-caramel);
@@ -1313,8 +1314,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.faq-card.open .faq-answer {
-  max-height: 400px;
+.faq-card:hover .faq-answer,
+.faq-card.open .faq-answer,
+.faq-answer.active {
+  max-height: 600px;
 }
 
 .faq-answer-inner {
