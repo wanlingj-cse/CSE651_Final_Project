@@ -83,7 +83,7 @@ export default async function handler(req, res) {
         pickupDate: pickupDate || 'Earliest available (48h lead time)',
         pickupTime: pickupTime || 'Morning (9:00 AM - 12:00 PM)',
         customerNotes: (customerNotes || '').substring(0, 500),
-        storeLocation: '3108 Alum Rock Ave, San Jose, CA 95127',
+        storeLocation: '1601 McCarthy Boulevard, Milpitas, CA 95035',
       },
       success_url: successUrl
         ? (successUrl.startsWith('http') ? successUrl : `${origin}${successUrl.startsWith('/') ? '' : '/'}${successUrl}`)
@@ -98,7 +98,7 @@ export default async function handler(req, res) {
       sessionConfig.metadata.customerEmail = customerEmail;
     }
 
-    // Apply Peters' Bakery Rewards Credit redemption as a Stripe discount
+    // Apply San Jose Bakery Rewards Credit redemption as a Stripe discount
     if (rewardCreditRedeemedNum > 0) {
       const subtotalCents = line_items.reduce((sum, item) => sum + (item.price_data.unit_amount * item.quantity), 0);
       const discountCents = Math.min(Math.round(rewardCreditRedeemedNum * 100), subtotalCents);
@@ -108,7 +108,7 @@ export default async function handler(req, res) {
             amount_off: discountCents,
             currency: 'usd',
             duration: 'once',
-            name: `Peters' Bakery Rewards Credit (-$${(discountCents / 100).toFixed(2)})`,
+            name: `San Jose Bakery Rewards Credit (-$${(discountCents / 100).toFixed(2)})`,
           });
           sessionConfig.discounts = [{ coupon: coupon.id }];
           sessionConfig.metadata.rewardCreditRedeemed = (discountCents / 100).toFixed(2);

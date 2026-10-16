@@ -1,5 +1,5 @@
 // ============================================================================
-// PETERS' BAKERY REWARDS — SUPABASE SERVERLESS BACKEND
+// SAN JOSE BAKERY REWARDS — SUPABASE SERVERLESS BACKEND
 // Handles Customer Data, Spends, 90-Day Credit Expiration & 7-Day Reminder
 // ============================================================================
 
@@ -81,7 +81,7 @@ export default async function handler(req, res) {
         // Grant a $1.00 Welcome Credit expiring in 90 days
         const welcomeSpend = {
           customer_email: customer.email,
-          order_description: 'Welcome Bonus for Joining Peters Bakery Rewards',
+          order_description: 'Welcome Bonus for Joining San Jose Bakery Rewards',
           spend_amount: 0.00,
           credit_rate: 0.01,
           credit_earned: 1.00, // $1.00 credit

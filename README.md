@@ -1,6 +1,8 @@
-# Peters' Bakery Website Clone (Est. 1936)
+# San Jose Bakery (Est. 1936)
 
-A faithful, high-fidelity clone of **[Peters' Bakery](https://www.petersbakery.com/)** in San Jose, CA — Silicon Valley's oldest family-owned bakery and home of the world-famous **Burnt Almond Cake**.
+Silicon Valley's premier family-owned bakery and home of the world-famous **Burnt Almond Cake**.
+- **Bakery Address**: 1601 McCarthy Boulevard, Milpitas, CA 95035
+- **Phone**: (408) 290 - 9725
 
 🌐 **Live Production Deployment**: **[https://peters-bakery.vercel.app](https://peters-bakery.vercel.app)**
 
@@ -9,15 +11,15 @@ A faithful, high-fidelity clone of **[Peters' Bakery](https://www.petersbakery.c
 ## 🌟 Key Features
 
 1. **Faithful Visual Design & Branding**
-   - Authentic Peters' Bakery logo, typography, color palette (baker's chocolate, toasted caramel gold, warm cream, almond), and motto: *"If you don’t want to eat it yourself, don’t sell it."*
+   - Authentic San Jose Bakery logo, typography, color palette (baker's chocolate, toasted caramel gold, warm cream, almond), and motto: *"If you don’t want to eat it yourself, don’t sell it."*
    - Real-time **Open / Closed Store Status Badge** calculated dynamically based on store hours (Tuesday–Saturday 6:30 AM – 6:00 PM, Sunday & Monday closed).
 
 2. **Complete Page Architecture**
-   - **Home (`index.html`)**: Hero banner, customer welcome card, *"What We Bake"* signature showcase (Strawberry Ring, Burnt Almond Cake, Beehive Coffee Cake), heritage story teaser, *"Come Visit Us"* section with store photography, interactive Google Map embed, and full footer.
-   - **About Us & History (`about.html`)**: Complete narrative of founder Tony Peters (1907–1996), Studebaker weekday job & San Francisco weekend apprentice train rides, 1936 founding, 1947 Alum Rock relocation, 1974 armed robbery showdown, Santa Clara County Horsemen's Association presidency, and 3rd generation family continuation. Includes historical photos (`tony-portrait.png`, `tony-horse.jpg`, `bakery-1972.jpg`, `about-mural.jpg`) and an interactive milestone timeline.
+   - **Home (`index.html`)**: Hero banner, customer welcome card, *"What We Bake"* signature showcase (Strawberry Ring, Burnt Almond Cake, Beehive Coffee Cake), heritage story teaser, *"Come Visit Us"* section with store photography, interactive Google Map embed (1601 McCarthy Boulevard, Milpitas, CA 95035), and full footer.
+   - **About Us & History (`about.html`)**: Complete narrative of founder Tony Peters (1907–1996), Studebaker weekday job & San Francisco weekend apprentice train rides, 1936 founding, 1947 Alum Rock relocation, 1974 armed robbery showdown, Santa Clara County Horsemen's Association presidency, and 3rd generation family continuation at the modern Milpitas bakery home. Includes historical photos and an interactive milestone timeline.
    - **Online Ordering & Full Menu (`online/petersbakery.html`)**: Category filters (Burnt Almond Cakes, Specialties & Danish, Pies, Breakfast Pastries, Cookies, Artisan Breads) with instant customization, size selector, and shopping bag checkout.
    - **Photo Gallery (`gallery.html`)**: 15 authentic gallery photos with category tags and a full-screen interactive **Lightbox Viewer** supporting keyboard and arrow navigation.
-   - **FAQ (`faq.html`)**: All 14 official Peters' Bakery questions & answers (dietary restrictions, Burnt Almond Cake ingredients, Goldbelly delivery explanation, pre-order lines, wedding cakes, storage tips) featuring animated accordions and a **live search filter**.
+   - **FAQ (`faq.html`)**: All 14 official bakery questions & answers (dietary restrictions, Burnt Almond Cake ingredients, Goldbelly delivery explanation, pre-order lines, wedding cakes, storage tips) featuring animated accordions and a **live search filter**.
    - **Orders & Notice (`orders.html`)**: Official 48-hour advance notice advisory, small lobby guidance, direct link to official Toast Tab, plus an interactive **Custom Burnt Almond Cake Builder** with size selections, custard flavors, and custom chocolate script inscriptions.
    - **Rewards & Loyalty Program (`rewards.html`)**: 7 Leaves Cafe-inspired rewards club with Burnt Almond Cake & iPhone mockup, mobile app under construction advisory, user registration with password, customer rewards window in dollars and cents, and 1% credit on purchases $25+.
    - **Return & Refund Policy (`refund.html`)**: Complete, official 48-hour return requirements, product evaluation policy, non-refundable items, and donation guidelines.

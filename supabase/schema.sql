@@ -1,5 +1,5 @@
 -- ============================================================================
--- PETERS' BAKERY REWARDS PROGRAM — SUPABASE DATABASE SCHEMA
+-- SAN JOSE BAKERY REWARDS PROGRAM — SUPABASE DATABASE SCHEMA
 -- Customer Data, Spends, 90-Day Credit Expiration & 7-Day Reminder System
 -- ============================================================================
 

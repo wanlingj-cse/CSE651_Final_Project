@@ -192,7 +192,7 @@ function initLightbox() {
 
   lightboxItems = Array.from(galleryElements).map(el => {
     const img = el.querySelector('img');
-    const title = el.querySelector('h4')?.innerText || 'Peters Bakery';
+    const title = el.querySelector('h4')?.innerText || 'San Jose Bakery';
     const desc = el.querySelector('p')?.innerText || '';
     return {
       src: img?.getAttribute('data-full') || img?.src,
@@ -587,7 +587,7 @@ function updateCartUI() {
       <div style="background: #faf6f0; border: 1px solid var(--color-border); border-radius: 8px; padding: 10px; margin-bottom: 12px;">
         <div style="font-size: 0.8rem; font-weight: 600; color: var(--color-primary); margin-bottom: 6px; display: flex; align-items: center; gap: 4px;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Pickup at 3108 Alum Rock Ave (48h Lead Time)
+          Pickup at 1601 McCarthy Boulevard, Milpitas, CA 95035 (48h Lead Time)
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px;">
           <div>
